@@ -34,7 +34,8 @@ O serviço é dividido em:
 
   * TypeScript
   * JavaScript
-  * Angular 14.x.x
+  * Angular
+  * Bootstrap
   * Material Design
   * Font Awesome
   * Google Fonts

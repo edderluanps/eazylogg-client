@@ -50,7 +50,6 @@ O serviço é dividido em:
 ### Deploy
   
   * Frotend: Netlify
-  * App: Play Store (Android)
 
 
 ## Instalação Passo a passo

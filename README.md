@@ -1,7 +1,3 @@
-
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
-
 # eazylogg-client
 Client Side do projeto EazyLogg
 
@@ -26,7 +22,7 @@ O serviço é dividido em:
 ## Telas
 
 ### Página principal
-<img src="https://github.com/edderluanps/eazylogg-client/blob/e48192e2c861a0c419ced404f5733602b32eaac2/assets/page.png">
+<img src="https://github.com/edderluanps/eazylogg-client/blob/e48192e2c861a0c419ced404f5733602b32eaac2/assets/page.png" styles="height: 120%; width: 120%;">
 
 ### Página Admin (Now UI)
 <img src="https://github.com/edderluanps/eazylogg-client/blob/e48192e2c861a0c419ced404f5733602b32eaac2/assets/now-ui.jpg">
@@ -59,6 +55,7 @@ O serviço é dividido em:
 ## Instalação Passo a passo
 
 * Obs: O processo descrito priorizará o MS Windows.
+* Este projeto foi gerado na versão [Angular CLI](https://github.com/angular/angular-cli) 15.1.6 do Angular.
 
 ### Angular
 * Para instalar o Angular é necessário ter o <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreferrer">  Node.js </a> instalado na máquina;

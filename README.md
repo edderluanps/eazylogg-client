@@ -22,10 +22,10 @@ O serviço é dividido em:
 ## Telas
 
 ### Página principal
-<img src="https://github.com/edderluanps/eazylogg-client/blob/e48192e2c861a0c419ced404f5733602b32eaac2/assets/page.png" styles="height: 120%; width: 120%;">
+<img src="https://github.com/edderluanps/eazylogg-client/blob/e48192e2c861a0c419ced404f5733602b32eaac2/assets/page.png">
 
 ### Página Admin (Now UI)
-<img src="https://github.com/edderluanps/eazylogg-client/blob/e48192e2c861a0c419ced404f5733602b32eaac2/assets/now-ui.jpg">
+<img src="https://github.com/edderluanps/eazylogg-client/blob/e48192e2c861a0c419ced404f5733602b32eaac2/assets/now-ui.jpg" styles="height: 90%; width: 90%;">
 
 
 ## Tecnologias

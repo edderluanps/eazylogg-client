@@ -1,9 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { EntregasComponent } from './pages/entregas/entregas.component';
+import { EntregadoresComponent } from './pages/entregadores/entregadores.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
+import { RastreamentoComponent } from './pages/rastreamento/rastreamento.component';
 
 const routes: Routes = [
-  { path: '', component: HomepageComponent }
+  { path: '', component: HomepageComponent },
+  { path: 'entregas', component: EntregasComponent },
+  { path: 'entregadores', component: EntregadoresComponent },
+  { path: 'rastreamento', component: RastreamentoComponent },
+  { path: 'sobre', component: SobreComponent }
 ];
 
 @NgModule({

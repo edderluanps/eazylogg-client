@@ -9,15 +9,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { EntregasComponent } from './pages/entregas/entregas.component';
+import { EntregadoresComponent } from './pages/entregadores/entregadores.component';
+import { RastreamentoComponent } from './pages/rastreamento/rastreamento.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    EntregasComponent,
+    EntregadoresComponent,
+    RastreamentoComponent,
+    SobreComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,

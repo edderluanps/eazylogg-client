@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,14 +9,29 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router : Router){}
+  email = new FormControl('', [Validators.required, Validators.email]);
+  senha = new FormControl('', [Validators.required, Validators.email]);
+
+  hide = true;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
   }
 
-  getSignup(){
+  getSignup() {
     this.router.navigate(['/signup']);
+  }
+
+  login() {
+    if (this.email.value === '') {
+      alert('Preencha o email');
+    } else if (this.senha.value === '') {
+      alert('Preencha o senha');
+    } else {
+      alert(this.email.value + '\n' + this.senha.value);
+    }
   }
 
 }

@@ -1,3 +1,38 @@
-<p>login works!</p>
+<div class="container">
 
-<button mat-raised-button color="primary" (click)="getSignup()">Signup</button>
+  <div class="col col-1">
+    <mat-card>
+      <mat-form-field>
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="senha" required>
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="btn-first" (click)="login()">Login</button>
+      <button mat-raised-button color="warn" class="btn-first" (click)="getSignup()">Cadastrar</button>
+
+      <h2 class="card-title">ou entre com</h2>
+
+      <div class="login-outros">
+        <button mat-raised-button class="btn-first">
+          <i class="fa-brands fa-google"></i>Google</button>
+        <button mat-raised-button class="btn-first">
+          <i class="fa-brands fa-apple"></i>Apple</button>
+      </div>
+
+    </mat-card>
+  </div>
+
+  <div class="col col-2">
+    <a routerLink="/"><i class="fa-solid fa-close"></i></a>
+    <img src="../../../assets/images/login-background.jpg" alt="">
+  </div>
+
+</div>

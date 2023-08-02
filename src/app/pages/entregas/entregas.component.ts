@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 
@@ -54,6 +55,11 @@ export class EntregasComponent implements OnInit {
   allComplete: boolean = false;
   allComplete2: boolean = false;
 
+  itensCount = 1;
+  linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
+
+  filtro = new FormControl('', [Validators.required, Validators.email]);
+
   constructor(private router : Router){}
 
   ngOnInit(): void {
@@ -62,6 +68,10 @@ export class EntregasComponent implements OnInit {
 
   getHomePage(){
     this.router.navigate(['/']);
+  }
+
+  getEntregasPage(){
+    this.router.navigate(['/entregas-page']);
   }
 
   getEntregas(){
@@ -141,6 +151,17 @@ export class EntregasComponent implements OnInit {
     }
 
     return `${value}`;
+  }
+
+
+
+  //Filtros
+  filtrarPesquisa(){
+    alert(this.filtro.value);
+  }
+
+  limparFiltros(){
+    alert('Limpo');
   }
 
 }

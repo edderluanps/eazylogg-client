@@ -1,6 +1,6 @@
 <div class="container">
   <nav class="navbar">
-    <div class="logo-area">
+    <div class="logo-area" (click)="getHomePage()">
       <img src="../../../assets/logos/logo1.png" alt="" />
       <h4>Eazy<span>Logg</span></h4>
     </div>
@@ -26,7 +26,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Pesquisa</mat-label>
-        <input matInput placeholder="ex: Recife">
+        <input matInput placeholder="ex: Recife" [formControl]="filtro" required>
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
 
@@ -103,12 +103,12 @@
         </section>
         <p class="quebra-linha"></p>
 
-        <button mat-raised-button color="warn" class="btn-first">
+        <button mat-raised-button color="warn" class="btn-first" (click)="filtrarPesquisa()">
           <mat-icon>search</mat-icon>
           Filtrar
         </button>
 
-        <button mat-raised-button class="btn-second">
+        <button mat-raised-button class="btn-second" (click)="limparFiltros()">
           <mat-icon>clear</mat-icon>
           Limpar filtros
         </button>
@@ -117,63 +117,14 @@
 
       <section class="listagem-area">
 
-      <mat-card class="card">
-        <mat-card-header>
-          <img src="" alt="">
-        </mat-card-header>
-        <mat-card-content>
-          <a href="" class="link">Entrega para João Pessoa - PB</a>
-          <p class="paragraph">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.
-          </p>
-          <mat-card-footer align="start">
-            <h2 class="title-3">R$ 30.00</h2>
-            <p class="paragraph">Data de entrega: 01/01/2024</p>
-          </mat-card-footer>
-        </mat-card-content>
-      </mat-card>
+      <h2 class="title-3" *ngIf="itensCount<1">Ooops... sua pesquisa não retornou nenhum item. Tente novamente</h2>
 
       <mat-card class="card">
         <mat-card-header>
-          <img src="" alt="">
+          <img [src]="linkDefault" alt="">
         </mat-card-header>
         <mat-card-content>
-          <a href="" class="link">Entrega para João Pessoa - PB</a>
-          <p class="paragraph">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.
-          </p>
-          <mat-card-footer align="start">
-            <h2 class="title-3">R$ 30.00</h2>
-            <p class="paragraph">Data de entrega: 01/01/2024</p>
-          </mat-card-footer>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="card">
-        <mat-card-header>
-          <img src="" alt="">
-        </mat-card-header>
-        <mat-card-content>
-          <a href="" class="link">Entrega para João Pessoa - PB</a>
-          <p class="paragraph">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.
-          </p>
-          <mat-card-footer align="start">
-            <h2 class="title-3">R$ 30.00</h2>
-            <p class="paragraph">Data de entrega: 01/01/2024</p>
-          </mat-card-footer>
-        </mat-card-content>
-      </mat-card>
-
-      <mat-card class="card">
-        <mat-card-header>
-          <img src="" alt="">
-        </mat-card-header>
-        <mat-card-content>
-          <a href="" class="link">Entrega para João Pessoa - PB</a>
+          <a routerLink="/entregas-page" class="link">Entrega para João Pessoa - PB</a>
           <p class="paragraph">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.

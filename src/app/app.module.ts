@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,6 +26,8 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ErrorPageComponent } from './pages/homepage/error-page/error-page.component';
+import { EntregadoresPageComponent } from './pages/entregadores/entregadores-page/entregadores-page.component';
+import { EntregasPageComponent } from './pages/entregas/entregas-page/entregas-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ErrorPageComponent } from './pages/homepage/error-page/error-page.compo
     SobreComponent,
     LoginComponent,
     SignupComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    EntregadoresPageComponent,
+    EntregasPageComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,8 @@ import { ErrorPageComponent } from './pages/homepage/error-page/error-page.compo
     RouterModule,
     BrowserAnimationsModule,
     FormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatButtonModule,
     MatIconModule,

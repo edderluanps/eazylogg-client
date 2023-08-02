@@ -8,7 +8,8 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   height: 40px;
-  width: 180px;
+  width: 250px;
+  margin: 5px 0;
 }
 
 .btn-second{
@@ -17,7 +18,8 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   height: 40px;
-  width: 180px;
+  width: 250px;
+  margin: 5px 0;
 }
 
 .btn-login{
@@ -79,6 +81,27 @@
   display: flex;
   align-items: center;
   color: #4E4E4E;
+}
+
+.link{
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+  color: #4E4E4E;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.link:hover{
+  color: #FF3300;
+}
+
+.quebra-linha{
+  margin: 10px 0 40px;
 }
 /**/
 
@@ -154,8 +177,125 @@
 
 /*content*/
 .container .content{
-  height: 500px;
+  min-height: 500px;
+  height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #f2f2f2;
+}
+
+/*Pesquisa*/
+.container .content .pesquisa-area{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container .content .pesquisa-area mat-form-field{
+  height: 40px;
+  width: 500px;
+}
+
+/*Itens*/
+.container .content .itens-area{
+  min-height: 1000px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  }
+
+.container .content .itens-area .filtros-area{
+  min-height: 100%;
+  width: 20%;
+  border-right: 1px solid #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0 50px 30px;
+}
+
+.container .content .itens-area .filtros-area mat-form-field{
+  width: 250px;
+}
+
+.container .content .itens-area .filtros-area .example-section {
+  margin: 2px 0;
+}
+
+.container .content .itens-area .filtros-area .example-margin {
+  margin: 2px;
+}
+
+.container .content .itens-area .filtros-area ul {
+  list-style-type: none;
+  margin-top: 4px;
+}
+
+/*Listagem*/
+.container .content .itens-area .listagem-area{
+  min-height: 1000px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 50px 250px 50px 50px;
+}
+
+.container .content .itens-area .listagem-area .card{
+  height: 250px;
+  width: 100%;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.container .content .itens-area .listagem-area .card:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.container .content .itens-area .listagem-area .card{
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+}
+
+.container .content .itens-area .listagem-area .card mat-card-header{
+  height: 100%;
+  width: 25%;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .content .itens-area .listagem-area .card mat-card-header img{
+  height: 90%;
+  width: 90%;
+}
+
+.container .content .itens-area .listagem-area .card mat-card-content{
+  height: 100%;
+  width: 75%;
+  border-radius: 0 5px 5px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px 50px;
+}
+
+.container .content .itens-area .listagem-area .card mat-card-content mat-card-footer{
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0 0 0;
 }
 
 

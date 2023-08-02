@@ -144,6 +144,11 @@
   color: #4E4E4E;
   font-size: 14px;
   cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.container .navbar .menu .item:hover{
+  color: #FF3300;
 }
 
 /*Slider*/

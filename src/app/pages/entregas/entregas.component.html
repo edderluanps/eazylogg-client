@@ -1,1 +1,255 @@
-<p>entregas works!</p>
+<div class="container">
+  <nav class="navbar">
+    <div class="logo-area">
+      <img src="../../../assets/logos/logo1.png" alt="" />
+      <h4>Eazy<span>Logg</span></h4>
+    </div>
+
+    <div class="menu">
+      <a (click)="getHomePage()" class="item">home</a>
+      <a (click)="getEntregas()" class="item">entregas</a>
+      <a (click)="getEntregadores()" class="item">entregadores</a>
+      <a (click)="getRastreamento()" class="item">rastreamento</a>
+      <a (click)="getSobre()" class="item">sobre nós</a>
+    </div>
+
+    <button mat-raised-button color="warn" class="btn-login" (click)="getLogin()">
+      <mat-icon>account_circle</mat-icon>
+      entrar
+    </button>
+  </nav>
+
+
+  <div class="content">
+
+    <section class="pesquisa-area">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Pesquisa</mat-label>
+        <input matInput placeholder="ex: Recife">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+
+    </section>
+
+    <div class="itens-area">
+
+      <section class="filtros-area">
+
+        <h2 class="card-title">Ordenar por</h2>
+        <mat-form-field>
+          <mat-label>Selecione</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let i of selecao" [value]="i.value">
+              {{ i.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <p class="quebra-linha"></p>
+
+        <h2 class="card-title">Valor da entrega pacote</h2>
+        <mat-slider min="0" max="100000" step="1000" showTickMarks discrete [displayWith]="formatLabel" color="warn" style="width: 220px;">
+          <input matSliderThumb>
+        </mat-slider>
+        <p class="quebra-linha"></p>
+
+        <h2 class="card-title">Local de coleta</h2>
+        <section class="example-section">
+          <span class="example-list-section">
+            <mat-checkbox class="example-margin"
+                          [checked]="allComplete"
+                          [color]="task.color"
+                          [indeterminate]="someComplete()"
+                          (change)="setAll($event.checked)">
+              {{task.name}}
+            </mat-checkbox>
+          </span>
+          <span class="example-list-section">
+            <ul>
+              <li *ngFor="let subtask of task.subtasks">
+                <mat-checkbox [(ngModel)]="subtask.completed"
+                              [color]="subtask.color"
+                              (ngModelChange)="updateAllComplete()">
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </section>
+        <p class="quebra-linha"></p>
+
+        <h2 class="card-title">Porte do pacote</h2>
+        <section class="example-section">
+          <span class="example-list-section">
+            <mat-checkbox class="example-margin"
+                          [checked]="allComplete2"
+                          [color]="task2.color"
+                          [indeterminate]="someComplete2()"
+                          (change)="setAll2($event.checked)">
+              {{task2.name}}
+            </mat-checkbox>
+          </span>
+          <span class="example-list-section">
+            <ul>
+              <li *ngFor="let subtask of task2.subtasks">
+                <mat-checkbox [(ngModel)]="subtask.completed"
+                              [color]="subtask.color"
+                              (ngModelChange)="updateAllComplete2()">
+                  {{subtask.name}}
+                </mat-checkbox>
+              </li>
+            </ul>
+          </span>
+        </section>
+        <p class="quebra-linha"></p>
+
+        <button mat-raised-button color="warn" class="btn-first">
+          <mat-icon>search</mat-icon>
+          Filtrar
+        </button>
+
+        <button mat-raised-button class="btn-second">
+          <mat-icon>clear</mat-icon>
+          Limpar filtros
+        </button>
+
+      </section>
+
+      <section class="listagem-area">
+
+      <mat-card class="card">
+        <mat-card-header>
+          <img src="" alt="">
+        </mat-card-header>
+        <mat-card-content>
+          <a href="" class="link">Entrega para João Pessoa - PB</a>
+          <p class="paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.
+          </p>
+          <mat-card-footer align="start">
+            <h2 class="title-3">R$ 30.00</h2>
+            <p class="paragraph">Data de entrega: 01/01/2024</p>
+          </mat-card-footer>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="card">
+        <mat-card-header>
+          <img src="" alt="">
+        </mat-card-header>
+        <mat-card-content>
+          <a href="" class="link">Entrega para João Pessoa - PB</a>
+          <p class="paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.
+          </p>
+          <mat-card-footer align="start">
+            <h2 class="title-3">R$ 30.00</h2>
+            <p class="paragraph">Data de entrega: 01/01/2024</p>
+          </mat-card-footer>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="card">
+        <mat-card-header>
+          <img src="" alt="">
+        </mat-card-header>
+        <mat-card-content>
+          <a href="" class="link">Entrega para João Pessoa - PB</a>
+          <p class="paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.
+          </p>
+          <mat-card-footer align="start">
+            <h2 class="title-3">R$ 30.00</h2>
+            <p class="paragraph">Data de entrega: 01/01/2024</p>
+          </mat-card-footer>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="card">
+        <mat-card-header>
+          <img src="" alt="">
+        </mat-card-header>
+        <mat-card-content>
+          <a href="" class="link">Entrega para João Pessoa - PB</a>
+          <p class="paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.
+          </p>
+          <mat-card-footer align="start">
+            <h2 class="title-3">R$ 30.00</h2>
+            <p class="paragraph">Data de entrega: 01/01/2024</p>
+          </mat-card-footer>
+        </mat-card-content>
+      </mat-card>
+
+      <p class="quebra-linha"></p>
+
+      <mat-paginator
+              [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+      </mat-paginator>
+
+      </section>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer">
+
+    <div class="row-a">
+      <div class="logo-area">
+        <span class="logo">
+          <img src="../../../assets/logos/logo1.png" alt="" />
+          <h4>Eazy<span>Logg</span></h4>
+        </span>
+        <p class="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis natus facere, molestiae doloremque praesentium quo eos pariatur aperiam quam adipisci!</p>
+      </div>
+
+      <div class="links-area">
+        <ol>
+          <li><h2 class="card-title">Links</h2></li>
+          <li class="paragraph">Buscar entregas</li>
+          <li class="paragraph">Anunciar entrega</li>
+          <li class="paragraph">Sobre nós</li>
+          <li class="paragraph">Rastreio</li>
+        </ol>
+
+        <ol>
+          <li><h2 class="card-title">Serviços</h2></li>
+          <li class="paragraph">Entregas</li>
+          <li class="paragraph">Parcerias</li>
+        </ol>
+
+        <ol>
+          <li><h2 class="card-title">Suporte</h2></li>
+          <li class="paragraph">Rua A, 101, Centro</li>
+          <li class="paragraph">+55 98765 4321</li>
+          <li class="paragraph">suporte@eazylogg.com</li>
+        </ol>
+
+        <ol>
+          <li><h2 class="card-title">Mídias sociais</h2></li>
+          <li class="paragraph"><i class="fa-brands fa-instagram"></i> Instagram</li>
+          <li class="paragraph"><i class="fa-brands fa-twitter"></i> Twitter</li>
+          <li class="paragraph"><i class="fa-brands fa-facebook"></i> Facebook</li>
+          <li class="paragraph"><i class="fa-brands fa-youtube"></i> YouTube</li>
+        </ol>
+
+      </div>
+
+    </div>
+
+    <div class="row-b">
+      <p class="paragraph">Copyright © 2023 - EazyLogg - All Rights Reserved</p>
+    </div>
+
+  </div>
+
+</div>

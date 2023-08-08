@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit {
 
+  linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
+
   constructor(private router : Router){}
 
   ngOnInit(): void {
@@ -20,6 +22,10 @@ export class HomepageComponent implements OnInit {
 
   getEntregas(){
     this.router.navigate(['/entregas']);
+  }
+
+  getNovaEntrega(){
+    this.router.navigate(['/nova-entrega']);
   }
 
   getEntregadores(){

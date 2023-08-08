@@ -157,16 +157,7 @@
   min-height: 500px;
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 2px solid #f2f2f2;
-}
-
-.container .content img{
-  height: 700px;
-  width: 1000px;
-  margin-top: 50px;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 

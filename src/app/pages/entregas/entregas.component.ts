@@ -23,13 +23,6 @@ export interface Task {
 
 export class EntregasComponent implements OnInit {
 
-  selecao: Selecao[] = [
-    {value: 'valor-0', viewValue: 'Menor valor'},
-    {value: 'valor-1', viewValue: 'Maior valor'},
-    {value: 'valor-2', viewValue: 'Mais recente'},
-    {value: 'valor-3', viewValue: 'Mais antigo'}
-  ];
-
   task: Task = {
     name: 'Todos',
     completed: false,
@@ -58,7 +51,8 @@ export class EntregasComponent implements OnInit {
   itensCount = 1;
   linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
 
-  filtro = new FormControl('', [Validators.required, Validators.email]);
+  ordenar = new FormControl('');
+  pesquisa = new FormControl('');
 
   constructor(private router : Router){}
 
@@ -155,13 +149,25 @@ export class EntregasComponent implements OnInit {
 
 
 
-  //Filtros
-  filtrarPesquisa(){
-    alert(this.filtro.value);
+  //Pesquisa
+  pesquisar(){
+    alert(this.pesquisa.value);
+    this.limparPesquisa();
+  }
+
+  limparPesquisa(){
+    this.pesquisa = new FormControl('');
+  }
+
+  //Filtrar
+  filtros(){
+    alert(this.ordenar.value);
   }
 
   limparFiltros(){
-    alert('Limpo');
+    this.ordenar = new FormControl('');
+    this.setAll(false);
+    this.setAll2(false);
   }
 
 }

@@ -28,6 +28,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { ErrorPageComponent } from './pages/homepage/error-page/error-page.component';
 import { EntregadoresPageComponent } from './pages/entregadores/entregadores-page/entregadores-page.component';
 import { EntregasPageComponent } from './pages/entregas/entregas-page/entregas-page.component';
+import { FormEntregaComponent } from './pages/entregas/form-entrega/form-entrega.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { EntregasPageComponent } from './pages/entregas/entregas-page/entregas-p
     SignupComponent,
     ErrorPageComponent,
     EntregadoresPageComponent,
-    EntregasPageComponent
+    EntregasPageComponent,
+    FormEntregaComponent
   ],
   imports: [
     BrowserModule,

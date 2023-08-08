@@ -80,6 +80,23 @@
   align-items: center;
   color: #4E4E4E;
 }
+
+.link{
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  color: #4E4E4E;
+  transition: all 0.5s ease;
+}
+
+.link:hover{
+  color: #FF3300;
+}
 /**/
 
 /*Container*/
@@ -207,39 +224,59 @@
 }
 
 /*Parceiros*/
-.container .partners-area{
-  height: 350px;
+.container .anuncios-area{
+  height: 450px;
   width: 100%;
   background: #FFFFFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 240px;
 }
 
-.container .partners-area .logos{
-  height: 220px;
+.container .anuncios-area .cards{
+  height: 250px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 0 300px;
 }
 
-.container .partners-area .logos .logo{
-  height: 150px;
-  width: 150px;
-  background: #D9D9D9;
-  border-radius: 50%;
+.container .anuncios-area .cards .card{
+  height: 100%;
+  width: 310px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
 }
 
-.container .partners-area .logos .logo img{
+.container .anuncios-area .cards .card:hover{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.container .anuncios-area .cards .card mat-card-header{
+  height: 60%;
+  width: 100%;
+}
+
+.container .anuncios-area .cards .card mat-card-header img{
   height: 100%;
   width: 100%;
-  border-radius: 100%;
-  border: none;
 }
+
+.container .anuncios-area .cards .card mat-card-content{
+  height: 20%;
+}
+
+.container .anuncios-area .cards .card mat-card-footer{
+  height: 20%;
+}
+
 
 /*Servicos*/
 .container .services-area{

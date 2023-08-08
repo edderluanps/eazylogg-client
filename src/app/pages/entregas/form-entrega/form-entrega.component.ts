@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-entregadores-page',
-  templateUrl: './entregadores-page.component.html',
-  styleUrls: ['./entregadores-page.component.css']
+  selector: 'app-form-entrega',
+  templateUrl: './form-entrega.component.html',
+  styleUrls: ['./form-entrega.component.css']
 })
-export class EntregadoresPageComponent  implements OnInit {
+export class FormEntregaComponent implements OnInit {
 
   constructor(private router : Router){}
 

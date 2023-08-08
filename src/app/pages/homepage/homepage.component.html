@@ -27,10 +27,10 @@
         excepturi laboriosam odit sunt animi rem natus error eius...
       </p>
       <div class="button-area">
-        <button mat-raised-button color="warn" class="btn-first">
+        <button mat-raised-button color="warn" class="btn-first" (click)="getNovaEntrega()">
           Anunciar entrega
         </button>
-        <button mat-raised-button color="none" class="btn-second">
+        <button mat-raised-button color="none" class="btn-second" (click)="getRastreamento()">
           Rastrear entrega
         </button>
       </div>
@@ -55,34 +55,70 @@
     </div>
   </div>
 
-  <div class="partners-area">
-    <h2 class="title-2">Paceiros oficiais</h2>
+  <div class="anuncios-area">
+    <h2 class="title-3">Ultimos anuncios</h2>
 
-    <div class="logos">
-      <div class="logo">
-        <img src="../../../assets/images/fake-partner-1.png" alt="">
-      </div>
+    <div class="cards">
 
-      <div class="logo">
-        <img src="../../../assets/images/fake-partner-2.png" alt="">
-      </div>
+      <mat-card class="card">
+        <mat-card-header>
+          <img [src]="linkDefault" alt="">
+        </mat-card-header>
 
-      <div class="logo">
-        <img src="../../../assets/images/fake-partner-3.png" alt="">
-      </div>
+        <mat-card-content>
+          <a routerLink="/entregas-page" class="link">Entrega para João Pessoa - PB</a>
+        </mat-card-content>
 
-      <div class="logo">
-        <img src="../../../assets/images/fake-partner-4.png" alt="">
-      </div>
+        <mat-card-footer align="end">
+          <h2 class="title-3">R$ 30.00</h2>
+        </mat-card-footer>
+      </mat-card>
 
-      <div class="logo">
-        <img src="../../../assets/images/fake-partner-5.png" alt="">
-      </div>
+      <mat-card class="card">
+        <mat-card-header>
+          <img [src]="linkDefault" alt="">
+        </mat-card-header>
 
-      <div class="logo">
-        <img src="../../../assets/images/fake-partner-6.png" alt="">
-      </div>
+        <mat-card-content>
+          <a routerLink="/entregas-page" class="link">Entrega para João Pessoa - PB</a>
+        </mat-card-content>
+
+        <mat-card-footer align="end">
+          <h2 class="title-3">R$ 30.00</h2>
+        </mat-card-footer>
+      </mat-card>
+
+      <mat-card class="card">
+        <mat-card-header>
+          <img [src]="linkDefault" alt="">
+        </mat-card-header>
+
+        <mat-card-content>
+          <a routerLink="/entregas-page" class="link">Entrega para João Pessoa - PB</a>
+        </mat-card-content>
+
+        <mat-card-footer align="end">
+          <h2 class="title-3">R$ 30.00</h2>
+        </mat-card-footer>
+      </mat-card>
+
+      <mat-card class="card">
+        <mat-card-header>
+          <img [src]="linkDefault" alt="">
+        </mat-card-header>
+
+        <mat-card-content>
+          <a routerLink="/entregas-page" class="link">Entrega para João Pessoa - PB</a>
+        </mat-card-content>
+
+        <mat-card-footer align="end">
+          <h2 class="title-3">R$ 30.00</h2>
+        </mat-card-footer>
+      </mat-card>
+
     </div>
+
+    <a routerLink="/entregas" class="link">Ver tudo</a>
 
   </div>
 

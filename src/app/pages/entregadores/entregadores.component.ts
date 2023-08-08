@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 
@@ -55,6 +56,9 @@ export class EntregadoresComponent implements OnInit {
 
   itensCount = 1;
   linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
+
+  ordenar = new FormControl('');
+  pesquisa = new FormControl('');
 
   constructor(private router : Router){}
 
@@ -147,6 +151,29 @@ export class EntregadoresComponent implements OnInit {
     }
 
     return `${value}`;
+  }
+
+
+
+  //Pesquisa
+  pesquisar(){
+    alert(this.pesquisa.value);
+    this.limparPesquisa();
+  }
+
+  limparPesquisa(){
+    this.pesquisa = new FormControl('');
+  }
+
+  //Filtrar
+  filtros(){
+    alert(this.ordenar.value);
+  }
+
+  limparFiltros(){
+    this.ordenar = new FormControl('');
+    this.setAll(false);
+    this.setAll2(false);
   }
 
 }

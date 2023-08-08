@@ -26,8 +26,8 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Pesquisa</mat-label>
-        <input matInput placeholder="ex: Recife">
-        <mat-icon matSuffix>search</mat-icon>
+        <input matInput placeholder="ex: Recife" [formControl]="pesquisa" required>
+        <mat-icon matSuffix (click)="pesquisar()">search</mat-icon>
       </mat-form-field>
 
     </section>
@@ -38,12 +38,13 @@
 
         <h2 class="card-title">Ordenar por</h2>
         <mat-form-field>
-          <mat-label>Selecione</mat-label>
-          <mat-select>
-            <mat-option *ngFor="let i of selecao" [value]="i.value">
-              {{ i.viewValue }}
-            </mat-option>
-          </mat-select>
+          <mat-label>Ordenar entregas</mat-label>
+            <select matNativeControl [formControl]="ordenar" name="car">
+              <option value="Menor preço">Menor preço</option>
+              <option value="Maior preço">Maior preço</option>
+              <option value="Mais recente">Mais recente</option>
+              <option value="Mais antigo">Mais antigo</option>
+            </select>
         </mat-form-field>
         <p class="quebra-linha"></p>
 
@@ -103,12 +104,12 @@
         </section>
         <p class="quebra-linha"></p>
 
-        <button mat-raised-button color="warn" class="btn-first">
+        <button mat-raised-button color="warn" class="btn-first" (click)=" filtros()">
           <mat-icon>search</mat-icon>
           Filtrar
         </button>
 
-        <button mat-raised-button class="btn-second">
+        <button mat-raised-button class="btn-second" (click)="limparFiltros()">
           <mat-icon>clear</mat-icon>
           Limpar filtros
         </button>

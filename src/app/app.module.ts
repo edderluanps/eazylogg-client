@@ -17,6 +17,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { EntregasComponent } from './pages/entregas/entregas.component';
 import { EntregadoresComponent } from './pages/entregadores/entregadores.component';
@@ -62,7 +64,9 @@ import { FormEntregaComponent } from './pages/entregas/form-entrega/form-entrega
     MatCheckboxModule,
     MatSliderModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatStepperModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

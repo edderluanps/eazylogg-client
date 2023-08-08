@@ -39,12 +39,12 @@
         <h2 class="card-title">Ordenar por</h2>
         <mat-form-field>
           <mat-label>Ordenar entregas</mat-label>
-            <select matNativeControl [formControl]="ordenar" name="car">
-              <option value="Menor preço">Menor preço</option>
-              <option value="Maior preço">Maior preço</option>
-              <option value="Mais recente">Mais recente</option>
-              <option value="Mais antigo">Mais antigo</option>
-            </select>
+            <mat-select matNativeControl [formControl]="ordenar" name="car">
+              <mat-option value="Menor preço">Menor preço</mat-option>
+              <mat-option value="Maior preço">Maior preço</mat-option>
+              <mat-option value="Mais recente">Mais recente</mat-option>
+              <mat-option value="Mais antigo">Mais antigo</mat-option>
+            </mat-select>
         </mat-form-field>
         <p class="quebra-linha"></p>
 

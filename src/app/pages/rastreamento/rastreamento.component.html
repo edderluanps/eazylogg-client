@@ -22,6 +22,89 @@
 
   <div class="content">
 
+    <div class="pesquisa">
+
+      <h2 class="title-3">Digite o código da entrega</h2>
+
+      <p class="quebra-linha"></p>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Pesquisa</mat-label>
+        <input matInput placeholder="ex: BR20231030-PE123" [formControl]="pesquisa" required>
+        <mat-icon matSuffix (click)="pesquisar()">search</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="resultado">
+
+      <h2 class="card-title">Status da entrega cód: <span>BR20231030-PE123</span></h2>
+
+      <h2 *ngIf="results < 1" class="title-3">Nenhum dado foi encontrado...</h2>
+
+      <h3 *ngIf="results < 1" class="card-title">Verifique se o código foi digitado corretamente.</h3>
+
+      <p class="quebra-linha"></p>
+
+      <mat-horizontal-stepper #stepper completed="false" *ngIf="results > 0">
+
+        <!-- change default 'edit' icon -->
+        <ng-template matStepperIcon="edit">
+          <mat-icon>done</mat-icon>
+        </ng-template>
+
+        <!-- changed step icons -->
+        <ng-template matStepperIcon="primeiro">
+          <mat-icon>handshake</mat-icon>
+        </ng-template>
+
+        <ng-template matStepperIcon="segundo">
+          <mat-icon>inventory</mat-icon>
+        </ng-template>
+
+        <ng-template matStepperIcon="terceiro">
+          <mat-icon>local_shipping</mat-icon>
+        </ng-template>
+
+        <ng-template matStepperIcon="quarto">
+          <mat-icon>done_all</mat-icon>
+        </ng-template>
+
+        <!-- Stepper -->
+        <mat-step label="Solicitado" state="primeiro">
+          <p>Entrega solicitada. Aguardando recolhimento.</p>
+        </mat-step>
+
+        <mat-step label="Recolhido" state="segundo">
+          <p>Pacote recolhida pelo entregador.</p>
+        </mat-step>
+
+        <mat-step label="A caminho" state="terceiro">
+          <p>Entrega a caminho. Rastreie em tempo real abaixo.</p>
+        </mat-step>
+
+        <mat-step label="Entregue" state="quarto">
+          <p>Pacote entregue.</p>
+        </mat-step>
+
+      </mat-horizontal-stepper>
+
+      <mat-accordion *ngIf="results > 0">
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <p class="card-title-2">Clique para rastrear a entrega:</p>
+          </mat-expansion-panel-header>
+          <div class="mapa-area">
+            <p>Ultima atualização: 01/01/2023 - 21:54</p>
+            <p>Local: Recife - PE, Brasil.</p>
+
+            <img [src]="imgMapa" alt="">
+
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+    </div>
+
   </div>
 
 

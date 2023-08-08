@@ -70,6 +70,16 @@
   color: #1A1A1A;
 }
 
+.card-title-2{
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  color: #1A1A1A;
+  margin: 10px 0;
+}
+
 .paragraph{
   font-family: 'Exo';
   font-style: normal;
@@ -158,6 +168,68 @@
   height: 100%;
   width: 100%;
   border-bottom: 1px solid #f2f2f2;
+  padding: 0 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container .content .pesquisa{
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .content .pesquisa mat-form-field{
+  width: 70%;
+}
+
+.container .content .resultado{
+  min-height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container .content .resultado mat-horizontal-stepper{
+  width: 95%;
+  pointer-events: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+::ng-deep .mat-step-header .mat-step-icon {
+  background-color: #4E4E4E;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #00ff00;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-done{
+  background-color: #009900;
+}
+
+.container .content .resultado mat-accordion{
+  margin: 10px 0;
+  width: 95%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.container .content .resultado mat-accordion .mapa-area{
+  min-height: 350px;
+  width: 100%;
+  padding: 0 50px 20px;
+}
+
+.container .content .resultado mat-accordion .mapa-area img{
+  height: 600px;
+  width: 100%;
 }
 
 

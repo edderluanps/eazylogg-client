@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-entrega.component.css']
 })
 export class FormEntregaComponent implements OnInit {
+
+  pacotePorte = new FormControl('');
+  pacoteRemetente = new FormControl('');
+  pacoteDestinatario = new FormControl('');
+  pacoteObservacao = new FormControl('');
 
   constructor(private router : Router){}
 
@@ -40,6 +46,10 @@ export class FormEntregaComponent implements OnInit {
 
   getSignup(){
     this.router.navigate(['/signup']);
+  }
+
+  getDataForm(){
+    alert(this.pacotePorte.value +'\n'+ this.pacoteRemetente.value +'\n'+ this.pacoteDestinatario.value +'\n'+ this.pacoteObservacao.value);
   }
 
 }

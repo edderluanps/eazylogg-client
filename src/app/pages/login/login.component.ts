@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
-  senha = new FormControl('', [Validators.required, Validators.email]);
+  senha = new FormControl('', [Validators.required]);
 
   hide = true;
 

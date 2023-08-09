@@ -22,6 +22,42 @@
 
   <div class="content">
 
+    <form class="form">
+
+      <h2 class="title-2">Cadastrar pacote</h2>
+
+      <p class="quebra-linha"></p>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Porte do pacote</mat-label>
+        <input type="email" matInput
+               placeholder="Ex. pat@example.com" [formControl]="pacotePorte">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Contratante</mat-label>
+        <input type="email" matInput
+               placeholder="Ex. pat@example.com" [formControl]="pacoteRemetente">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Nome ou CPF Recebedor</mat-label>
+        <input type="email" matInput
+               placeholder="Ex. pat@example.com" [formControl]="pacoteDestinatario">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Observação</mat-label>
+        <textarea matInput
+                placeholder="Ex. It makes me feel..." [formControl]="pacoteObservacao">
+              </textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="warn" class="btn-first" (click)="getDataForm()">Cadastrar</button>
+      <button mat-raised-button color="primary" class="btn-first">Voltar</button>
+
+    </form>
+
   </div>
 
 

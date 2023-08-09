@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +8,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
+  hide = true;
+
+  nome = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required, Validators.email]);
+  senha = new FormControl('', [Validators.required]);
+  cpfOuCnpj = new FormControl('', [Validators.required]);
+  dataNascimento = new FormControl('', [Validators.required]);
+  logradouro = new FormControl('', [Validators.required]);
+  numero = new FormControl('', [Validators.required]);
+  cep = new FormControl('', [Validators.required]);
+  complemento = new FormControl('', [Validators.required]);
+  bairro = new FormControl('', [Validators.required]);
+  cidade = new FormControl('', [Validators.required]);
+  estado = new FormControl('', [Validators.required]);
+  pais = new FormControl('', [Validators.required]);
+  telefone1 = new FormControl('', [Validators.required]);
+  telefone2 = new FormControl('', [Validators.required]);
+  telefone3 = new FormControl('', [Validators.required]);
 
   constructor(private router : Router){}
 
@@ -40,6 +60,26 @@ export class SignupComponent implements OnInit {
 
   getSignup(){
     this.router.navigate(['/signup']);
+  }
+
+  getDataForm(){
+    alert(
+      this.nome.value +'\n'+
+      this.email.value +'\n'+
+      this.senha.value +'\n'+
+      this.cpfOuCnpj.value +'\n'+
+      this.dataNascimento.value +'\n'+
+      this.logradouro.value +'\n'+
+      this.numero.value +'\n'+
+      this.cep.value +'\n'+
+      this.complemento.value +'\n'+
+      this.bairro.value +'\n'+
+      this.cidade.value +'\n'+
+      this.estado.value +'\n'+
+      this.pais.value +'\n'+
+      this.telefone1.value +'\n'+
+      this.telefone2.value +'\n'+
+      this.telefone3.value);
   }
 
 }

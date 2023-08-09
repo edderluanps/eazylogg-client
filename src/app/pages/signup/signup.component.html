@@ -30,95 +30,98 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Nome</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <input type="text" matInput [formControl]="nome">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <input type="email" matInput placeholder="Ex. pat@example.com" [formControl]="email">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <mat-label>Senha</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="senha">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Cpf</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Repita a senha</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="senha">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Cpf ou Cnpj</mat-label>
+        <input type="text" matInput [formControl]="cpfOuCnpj">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Data Nascimento</mat-label>
+        <input type="text" matInput
+               placeholder="Ex. 01/01/2001" [formControl]="dataNascimento">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Logradouro</mat-label>
+        <input type="text" matInput [formControl]="logradouro">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Numero</mat-label>
+        <input type="text" matInput [formControl]="numero">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Cep</mat-label>
+        <input type="text" matInput [formControl]="cep">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Complemento</mat-label>
+        <input type="text" matInput [formControl]="complemento">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Bairro</mat-label>
+        <input type="text" matInput [formControl]="bairro">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Cidade</mat-label>
+        <input type="text" matInput [formControl]="cidade">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Estado</mat-label>
+        <input type="text" matInput [formControl]="estado">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" >
+        <mat-label>País</mat-label>
+        <input type="text" matInput [formControl]="pais">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Telefone</mat-label>
+        <input type="text" matInput [formControl]="telefone1">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput
-               placeholder="Ex. pat@example.com">
+        <mat-label>Telefone 2 *</mat-label>
+        <input type="text" matInput [formControl]="telefone2">
       </mat-form-field>
 
-      <button mat-raised-button color="warn" class="btn-first">Cadastrar</button>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Telefone 3 *</mat-label>
+        <input type="text" matInput [formControl]="telefone3">
+      </mat-form-field>
+
+      <button mat-raised-button color="warn" class="btn-first" (click)="getDataForm()">Cadastrar</button>
       <button mat-raised-button color="primary" class="btn-first">Voltar</button>
 
     </form>

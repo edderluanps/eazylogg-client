@@ -11,6 +11,8 @@ import { ErrorPageComponent } from './pages/homepage/error-page/error-page.compo
 import { EntregadoresPageComponent } from './pages/entregadores/entregadores-page/entregadores-page.component';
 import { EntregasPageComponent } from './pages/entregas/entregas-page/entregas-page.component';
 import { FormEntregaComponent } from './pages/entregas/form-entrega/form-entrega.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -23,6 +25,8 @@ const routes: Routes = [
   { path: 'sobre', component: SobreComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'confirmacao', component: ConfirmacaoComponent },
   { path: 'error', component: ErrorPageComponent }
 ];
 

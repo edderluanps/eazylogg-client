@@ -32,6 +32,7 @@ import { EntregadoresPageComponent } from './pages/entregadores/entregadores-pag
 import { EntregasPageComponent } from './pages/entregas/entregas-page/entregas-page.component';
 import { FormEntregaComponent } from './pages/entregas/form-entrega/form-entrega.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
     EntregadoresPageComponent,
     EntregasPageComponent,
     FormEntregaComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ConfirmacaoComponent
   ],
   imports: [
     BrowserModule,

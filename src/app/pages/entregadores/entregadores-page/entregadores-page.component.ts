@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class EntregadoresPageComponent  implements OnInit {
 
+  linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
+
   constructor(private router : Router){}
 
   ngOnInit(): void {

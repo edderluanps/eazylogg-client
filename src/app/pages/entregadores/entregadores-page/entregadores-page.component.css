@@ -4,7 +4,6 @@
 
 /*Global*/
 .btn-first{
-  background: #FF3300;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   height: 40px;
@@ -13,7 +12,6 @@
 
 .btn-second{
   background: none;
-  border: 1px solid #FF3300;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   height: 40px;
@@ -21,11 +19,16 @@
 }
 
 .btn-login{
-  background: #FF3300;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   height: 40px;
   width: 120px;
+}
+
+.btn-chat{
+  position: fixed;
+  right: 100px;
+  bottom: 50px;
 }
 
 .title{
@@ -158,6 +161,86 @@
   height: 100%;
   width: 100%;
   border-bottom: 1px solid #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .content .breadcrumb{
+  height: 100px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container .content .breadcrumb h2{
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  color: #4E4E4E;
+}
+
+.container .content .breadcrumb h2 i{
+  margin: 0 5px 0 0;
+}
+
+.container .content .breadcrumb h2 a{
+  color: #4E4E4E;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.container .content .breadcrumb h2 a.selected{
+  color: #FF3300;
+}
+
+.container .content .breadcrumb h2 a:hover{
+  color: #FF3300;
+}
+
+.container .content .cards{
+  min-height: 700px;
+  width: 80%;
+  background: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.container .content .cards .col{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 50px;
+}
+
+.container .content .cards .col img{
+  height: 50%;
+  width: 100%;
+}
+
+.container .content .cards .col .stars{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 30px;
+  color: #FF3300;
+  margin-bottom: 20px;
 }
 
 

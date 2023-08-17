@@ -85,24 +85,19 @@
 .container{
   height: 100%;
   width: auto;
-  background: #CCC;
+  background: #A1A1A1;
+  background-position: center;
+  background-size: contain;
   display: flex;
   flex-direction: row;
 }
 
 .container .col{
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.container .col-1{
-  width: 60%;
-}
-
-.container .col-2{
-  width: 40%;
 }
 
 .container .col mat-card{
@@ -113,7 +108,7 @@
   justify-content: center;
   align-items: center;
   padding: 50px;
-  border-radius: 5px;
+  border-radius: 10px;
   background: #F2F2F2;
 }
 
@@ -144,18 +139,4 @@
 .container .col img{
   height: 100%;
   width: 100%;
-}
-
-.container .col-2 i{
-  font-size: 50px;
-  color: #F2F2F2;
-  position: absolute;
-  right: 50px;
-  top: 50px;
-  cursor: pointer;
-  transition: all 0.5s ease;
-}
-
-.container .col-2 i:hover{
-  color: #FF3300;
 }

@@ -80,23 +80,6 @@
   align-items: center;
   color: #4E4E4E;
 }
-
-.link{
-  font-family: 'Exo';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 20px;
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  color: #4E4E4E;
-  transition: all 0.5s ease;
-}
-
-.link:hover{
-  color: #FF3300;
-}
 /**/
 
 /*Container*/
@@ -223,9 +206,9 @@
   right: 0;
 }
 
-/*Parceiros*/
+/*Ultimos Anuncios*/
 .container .anuncios-area{
-  height: 450px;
+  height: 500px;
   width: 100%;
   background: #FFFFFF;
   display: flex;
@@ -246,7 +229,7 @@
 
 .container .anuncios-area .cards .card{
   height: 100%;
-  width: 310px;
+  width: 320px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -271,10 +254,16 @@
 
 .container .anuncios-area .cards .card mat-card-content{
   height: 20%;
+  padding: 10px 0;
+  text-align: center;
 }
 
 .container .anuncios-area .cards .card mat-card-footer{
   height: 20%;
+}
+
+.container .anuncios-area .brn-ver-mais{
+  margin-top: 50px;
 }
 
 

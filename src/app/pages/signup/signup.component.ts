@@ -14,6 +14,7 @@ export class SignupComponent implements OnInit {
   nome = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
   senha = new FormControl('', [Validators.required]);
+  senhaConfirmacao = new FormControl('', [Validators.required]);
   cpfOuCnpj = new FormControl('', [Validators.required]);
   dataNascimento = new FormControl('', [Validators.required]);
   logradouro = new FormControl('', [Validators.required]);
@@ -25,8 +26,8 @@ export class SignupComponent implements OnInit {
   estado = new FormControl('', [Validators.required]);
   pais = new FormControl('', [Validators.required]);
   telefone1 = new FormControl('', [Validators.required]);
-  telefone2 = new FormControl('', [Validators.required]);
-  telefone3 = new FormControl('', [Validators.required]);
+  telefone2 = new FormControl('');
+  telefone3 = new FormControl('');
 
   constructor(private router : Router){}
 
@@ -63,23 +64,27 @@ export class SignupComponent implements OnInit {
   }
 
   getDataForm(){
-    alert(
-      this.nome.value +'\n'+
-      this.email.value +'\n'+
-      this.senha.value +'\n'+
-      this.cpfOuCnpj.value +'\n'+
-      this.dataNascimento.value +'\n'+
-      this.logradouro.value +'\n'+
-      this.numero.value +'\n'+
-      this.cep.value +'\n'+
-      this.complemento.value +'\n'+
-      this.bairro.value +'\n'+
-      this.cidade.value +'\n'+
-      this.estado.value +'\n'+
-      this.pais.value +'\n'+
-      this.telefone1.value +'\n'+
-      this.telefone2.value +'\n'+
-      this.telefone3.value);
-  }
 
+    if (this.senha.value != this.senhaConfirmacao.value) {
+      alert('Suas credenciais não conferem. Verifique novamente');
+    } else {
+      alert(
+        this.nome.value +'\n'+
+        this.email.value +'\n'+
+        this.senha.value +'\n'+
+        this.cpfOuCnpj.value +'\n'+
+        this.dataNascimento.value +'\n'+
+        this.logradouro.value +'\n'+
+        this.numero.value +'\n'+
+        this.cep.value +'\n'+
+        this.complemento.value +'\n'+
+        this.bairro.value +'\n'+
+        this.cidade.value +'\n'+
+        this.estado.value +'\n'+
+        this.pais.value +'\n'+
+        this.telefone1.value +'\n'+
+        this.telefone2.value +'\n'+
+        this.telefone3.value);
+    }
+  }
 }

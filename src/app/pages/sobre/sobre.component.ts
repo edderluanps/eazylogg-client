@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class SobreComponent implements OnInit {
 
+  img : string = 'https://blog.advesa.com/wp-content/uploads/2019/11/about-us-page.png';
+
   constructor(private router : Router){}
 
   ngOnInit(): void {

@@ -247,6 +247,46 @@
   padding: 50px 250px 50px 50px;
 }
 
+.container .content .listagem-area .breadcrumb{
+  height: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.container .content .listagem-area .breadcrumb h2{
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  color: #4E4E4E;
+}
+
+.container .content .listagem-area .breadcrumb h2 i{
+  margin: 0 5px 0 0;
+}
+
+.container .content .listagem-area .breadcrumb h2 a{
+  color: #4E4E4E;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+}
+
+.container .content .listagem-area .breadcrumb h2 a.selected{
+  color: #FF3300;
+}
+
+.container .content .listagem-area .breadcrumb h2 a:hover{
+  color: #FF3300;
+}
+
 .container .content .itens-area .listagem-area .card{
   height: 250px;
   width: 100%;
@@ -262,6 +302,10 @@
   display: flex;
   flex-direction: row;
   border-radius: 5px;
+}
+
+.container .content .itens-area .listagem-area .card .stars{
+  color: #FF3300;
 }
 
 .container .content .itens-area .listagem-area .card mat-card-header{

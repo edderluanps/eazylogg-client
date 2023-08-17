@@ -19,6 +19,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { EntregasComponent } from './pages/entregas/entregas.component';
 import { EntregadoresComponent } from './pages/entregadores/entregadores.component';
@@ -33,6 +35,7 @@ import { EntregasPageComponent } from './pages/entregas/entregas-page/entregas-p
 import { FormEntregaComponent } from './pages/entregas/form-entrega/form-entrega.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component';
+import { DialogComponent } from './pages/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component'
     EntregasPageComponent,
     FormEntregaComponent,
     CheckoutComponent,
-    ConfirmacaoComponent
+    ConfirmacaoComponent,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +74,9 @@ import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component'
     MatSelectModule,
     MatPaginatorModule,
     MatStepperModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

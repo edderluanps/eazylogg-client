@@ -26,7 +26,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Pesquisa</mat-label>
-        <input matInput placeholder="ex: Recife" [formControl]="pesquisa" required>
+        <input matInput placeholder="ex: Recife" [formControl]="pesquisa">
         <mat-icon matSuffix (click)="pesquisar()">search</mat-icon>
       </mat-form-field>
 
@@ -39,11 +39,11 @@
         <h2 class="card-title">Ordenar por</h2>
         <mat-form-field>
           <mat-label>Ordenar entregas</mat-label>
-            <mat-select matNativeControl [formControl]="ordenar" name="car">
-              <mat-option value="Menor preço">Menor preço</mat-option>
-              <mat-option value="Maior preço">Maior preço</mat-option>
-              <mat-option value="Mais recente">Mais recente</mat-option>
-              <mat-option value="Mais antigo">Mais antigo</mat-option>
+            <mat-select matNativeControl [formControl]="ordenar">
+              <mat-option value="menor preço">Menor preço</mat-option>
+              <mat-option value="maior preço">Maior preço</mat-option>
+              <mat-option value="mais recente">Mais recente</mat-option>
+              <mat-option value="mais antigo">Mais antigo</mat-option>
             </mat-select>
         </mat-form-field>
         <p class="quebra-linha"></p>
@@ -55,56 +55,37 @@
         <p class="quebra-linha"></p>
 
         <h2 class="card-title">Local de coleta</h2>
-        <section class="example-section">
-          <span class="example-list-section">
-            <mat-checkbox class="example-margin"
-                          [checked]="allComplete"
-                          [color]="task.color"
-                          [indeterminate]="someComplete()"
-                          (change)="setAll($event.checked)">
-              {{task.name}}
-            </mat-checkbox>
-          </span>
-          <span class="example-list-section">
-            <ul>
-              <li *ngFor="let subtask of task.subtasks">
-                <mat-checkbox [(ngModel)]="subtask.completed"
-                              [color]="subtask.color"
-                              (ngModelChange)="updateAllComplete()">
-                  {{subtask.name}}
-                </mat-checkbox>
-              </li>
-            </ul>
-          </span>
-        </section>
+        <mat-form-field>
+          <mat-label>Estado</mat-label>
+            <mat-select matNativeControl [formControl]="estado">
+              <mat-option value="pernambuco">Pernambuco</mat-option>
+              <mat-option value="paraiba">Paraiba</mat-option>
+              <mat-option value="bahia">Bahia</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Cidade</mat-label>
+            <mat-select matNativeControl [formControl]="cidade">
+              <mat-option value="recife">Recife</mat-option>
+              <mat-option value="olinda">Olinda</mat-option>
+            </mat-select>
+        </mat-form-field>
         <p class="quebra-linha"></p>
 
         <h2 class="card-title">Porte do pacote</h2>
-        <section class="example-section">
-          <span class="example-list-section">
-            <mat-checkbox class="example-margin"
-                          [checked]="allComplete2"
-                          [color]="task2.color"
-                          [indeterminate]="someComplete2()"
-                          (change)="setAll2($event.checked)">
-              {{task2.name}}
-            </mat-checkbox>
-          </span>
-          <span class="example-list-section">
-            <ul>
-              <li *ngFor="let subtask of task2.subtasks">
-                <mat-checkbox [(ngModel)]="subtask.completed"
-                              [color]="subtask.color"
-                              (ngModelChange)="updateAllComplete2()">
-                  {{subtask.name}}
-                </mat-checkbox>
-              </li>
-            </ul>
-          </span>
-        </section>
+        <mat-form-field>
+          <mat-label>Cidade</mat-label>
+            <mat-select matNativeControl [formControl]="porte">
+              <mat-option value="todos">Todos</mat-option>
+              <mat-option value="leve">Leve</mat-option>
+              <mat-option value="medio">Médio</mat-option>
+              <mat-option value="pesado">Pesado</mat-option>
+            </mat-select>
+        </mat-form-field>
         <p class="quebra-linha"></p>
 
-        <button mat-raised-button color="warn" class="btn-first" (click)=" filtros()">
+        <button mat-raised-button color="warn" class="btn-first" (click)="filtros()">
           <mat-icon>search</mat-icon>
           Filtrar
         </button>
@@ -118,6 +99,13 @@
 
       <section class="listagem-area">
 
+        <span class="breadcrumb">
+          <h2><i class="fa-solid fa-home"></i>
+            <a routerLink="/">Home</a> >
+            <a class="selected" routerLink="/entregadores">Entregadores</a>
+          </h2>
+        </span>
+
       <h2 class="title-3" *ngIf="itensCount<1">Ooops... sua pesquisa não retornou nenhum item. Tente novamente</h2>
 
       <mat-card class="card">
@@ -125,34 +113,26 @@
           <img [src]="linkDefault" alt="">
         </mat-card-header>
         <mat-card-content>
-          <a routerLink="/entregadores-page" class="link">Entrega para João Pessoa - PB</a>
+          <a routerLink="/entregadores-page" class="link">João da Silva</a>
           <p class="paragraph">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
           </p>
+          <span class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </span>
           <mat-card-footer align="start">
-            <h2 class="title-3">R$ 30.00</h2>
-            <p class="paragraph">Data de entrega: 01/01/2024</p>
+            <p class="paragraph"> <i class="fa-solid fa-map" style="margin: 0 10px 0 0;"></i> Recife-PE</p>
+            <p class="paragraph"> <i class="fa-solid fa-car" style="margin: 0 10px 0 0;"></i> Veículo: GM Celta 2012 Azul</p>
+            <p class="paragraph"> <i class="fa-solid fa-weight" style="margin: 0 10px 0 0;"></i> Porte: Médio</p>
           </mat-card-footer>
         </mat-card-content>
       </mat-card>
 
-      <mat-card class="card">
-        <mat-card-header>
-          <img [src]="linkDefault" alt="">
-        </mat-card-header>
-        <mat-card-content>
-          <a routerLink="/entregadores-page" class="link">Entrega para João Pessoa - PB</a>
-          <p class="paragraph">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque ex doloribus omnis autem accusantium explicabo inventore odit quae unde optio.
-          </p>
-          <mat-card-footer align="start">
-            <h2 class="title-3">R$ 30.00</h2>
-            <p class="paragraph">Data de entrega: 01/01/2024</p>
-          </mat-card-footer>
-        </mat-card-content>
-      </mat-card>
 
       <p class="quebra-linha"></p>
 

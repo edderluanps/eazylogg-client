@@ -4,7 +4,6 @@
 
 /*Global*/
 .btn-first{
-  background: #FF3300;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   height: 40px;
@@ -13,7 +12,6 @@
 
 .btn-second{
   background: none;
-  border: 1px solid #FF3300;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   height: 40px;
@@ -21,7 +19,6 @@
 }
 
 .btn-login{
-  background: #FF3300;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   height: 40px;
@@ -158,6 +155,61 @@
   height: 100%;
   width: 100%;
   border-bottom: 1px solid #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .content .about{
+  min-height: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 200px;
+}
+
+.container .content .about .cards{
+  height: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .content .about .cards .card{
+  height: 400px;
+  width: 470px;
+  background: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.container .content .about .cards .card mat-card-header{
+  height: 55%;
+  width: 100%;
+  padding: 20px;
+}
+
+.container .content .about .cards .card mat-card-header img{
+  height: 100%;
+  width: 100%;
+}
+
+.container .content .about .cards .card mat-card-footer{
+  height: 45%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: justify;
+  padding: 20px;
 }
 
 

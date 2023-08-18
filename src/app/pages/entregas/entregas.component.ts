@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { Pacote } from 'src/app/models/pacote';
+import { PacoteService } from 'src/app/services/pacote.service';
 
 @Component({
   selector: 'app-entregas',
@@ -14,16 +16,18 @@ export class EntregasComponent implements OnInit {
   itensCount = 1;
   linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
 
+  pacote : Pacote[];
+
   ordenar = new FormControl('');
   estado = new FormControl('');
   cidade = new FormControl('');
   porte = new FormControl('');
   pesquisa = new FormControl('');
 
-  constructor(private router : Router){}
+  constructor(private router : Router, private pacoteService : PacoteService){}
 
   ngOnInit(): void {
-
+    this.getPacotes();
   }
 
   getHomePage(){
@@ -90,4 +94,10 @@ export class EntregasComponent implements OnInit {
     this.ordenar = new FormControl('');
   }
 
+  //Get Usuarios
+  getPacotes() {
+    this.pacoteService.getPacotes().subscribe(response => this.pacote = response, error => {
+     alert('Oops... Ocorreu um erro: ' + error.message);
+    });
+  }
 }

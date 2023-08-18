@@ -21,7 +21,9 @@ export class RastreamentoComponent implements OnInit {
   interests : any[];
   imgMapa = 'https://developers.google.com/static/maps/images/landing/dds.png?hl=pt-br';
 
-  formGroup = new FormGroup({ secondCtrl: new FormControl(''), })
+  style = 'display: none';
+
+  formGroup = new FormGroup({ secondCtrl: new FormControl('')})
 
   constructor(private router: Router) { }
 
@@ -64,6 +66,8 @@ export class RastreamentoComponent implements OnInit {
 
   //Pesquisa
   pesquisar() {
+    this.results = 0;
+    this.style = 'display: flex'
     alert(this.pesquisa.value);
     this.limparPesquisa();
   }

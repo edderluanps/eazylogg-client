@@ -108,12 +108,12 @@
 
       <h2 class="title-3" *ngIf="itensCount<1">Ooops... sua pesquisa não retornou nenhum item. Tente novamente</h2>
 
-      <mat-card class="card">
+      <mat-card class="card" *ngFor="let item of usuario">
         <mat-card-header>
           <img [src]="linkDefault" alt="">
         </mat-card-header>
         <mat-card-content>
-          <a routerLink="/entregadores-page" class="link">João da Silva</a>
+          <a routerLink="/entregadores-page" class="link">{{ item.nome }}</a>
           <p class="paragraph">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.

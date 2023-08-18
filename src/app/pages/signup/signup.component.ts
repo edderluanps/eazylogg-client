@@ -66,8 +66,12 @@ export class SignupComponent implements OnInit {
   getDataForm(){
 
     if (this.senha.value != this.senhaConfirmacao.value) {
-      alert('Suas credenciais não conferem. Verifique novamente');
-    } else {
+      alert('Suas credenciais estão diferentes. Verifique novamente');
+
+    } else if ( this.nome.value == '',  this.email.value == '', this.senha.value == '', this.cpfOuCnpj.value == '', this.dataNascimento.value == ''){
+      alert('Preencha os campos obrigatórios');
+
+    }else {
       alert(
         this.nome.value +'\n'+
         this.email.value +'\n'+

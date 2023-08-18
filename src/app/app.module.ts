@@ -36,6 +36,7 @@ import { FormEntregaComponent } from './pages/entregas/form-entrega/form-entrega
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component';
 import { DialogComponent } from './pages/dialog/dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { DialogComponent } from './pages/dialog/dialog.component';
     AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     FormsModule,
     ReactiveFormsModule,

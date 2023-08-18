@@ -30,12 +30,12 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Pesquisa</mat-label>
-        <input matInput placeholder="ex: BR20231030-PE123" [formControl]="pesquisa" required>
+        <input matInput placeholder="ex: BR20231030-PE123" [formControl]="pesquisa">
         <mat-icon matSuffix (click)="pesquisar()">search</mat-icon>
       </mat-form-field>
     </div>
 
-    <div class="resultado">
+    <div class="resultado" [style]="style">
 
       <h2 class="card-title" *ngIf="results > 0">Status da entrega cód: <span class="status-codigo">BR20231030-PE123</span></h2>
 

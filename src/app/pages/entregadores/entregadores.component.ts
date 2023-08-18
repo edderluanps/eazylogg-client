@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 interface Selecao {
   value: string;
@@ -25,16 +27,18 @@ export class EntregadoresComponent implements OnInit {
   itensCount = 1;
   linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
 
+  usuario: Usuario[];
+
   ordenar = new FormControl('');
   estado = new FormControl('');
   cidade = new FormControl('');
   porte = new FormControl('');
   pesquisa = new FormControl('');
 
-  constructor(private router : Router){}
+  constructor(private router : Router, private usuarioService : UsuarioService){}
 
   ngOnInit(): void {
-
+    this.getPacotes();
   }
 
   getHomePage(){
@@ -99,6 +103,13 @@ export class EntregadoresComponent implements OnInit {
 
   limparFiltros(){
     this.ordenar = new FormControl('');
+  }
+
+  //Get Usuário
+  getPacotes() {
+    this.usuarioService.getUsuario().subscribe(response => this.usuario = response, error => {
+     alert('Oops... Ocorreu um erro: ' + error.message);
+    });
   }
 
 }

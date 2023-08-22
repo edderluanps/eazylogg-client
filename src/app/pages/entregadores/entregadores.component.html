@@ -26,8 +26,8 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Pesquisa</mat-label>
-        <input matInput placeholder="ex: Recife" [formControl]="pesquisa">
-        <mat-icon matSuffix (click)="pesquisar()">search</mat-icon>
+        <input matInput placeholder="ex: Recife" [(ngModel)]="pesquisa">
+        <mat-icon matSuffix (click)="getPesquisaUsuario()">search</mat-icon>
       </mat-form-field>
 
     </section>
@@ -106,14 +106,90 @@
           </h2>
         </span>
 
-      <h2 class="title-3" *ngIf="itensCount<1">Ooops... sua pesquisa não retornou nenhum item. Tente novamente</h2>
+      <h2 class="title-3" *ngIf="usuario < 1">Ooops... sua pesquisa não retornou nenhum item. Tente novamente</h2>
+
+      <div class="skeleton-card" *ngIf="loadData == true">
+
+        <div class="img">
+          <ngx-skeleton-loader [count]="1" [theme]="{
+            'border-radius': '10px',
+            'height': '100%',
+            'width': '100%',
+            'background-color': '#f2f2f2',
+            border: '1px solid white'}">
+        </ngx-skeleton-loader>
+        </div>
+
+        <div class="body">
+          <ngx-skeleton-loader [count]="1" [theme]="{
+            'border-radius': '10px',
+            'height': '30px',
+            'width': '80%',
+            'background-color': '#f2f2f2',
+            border: '1px solid white'}">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '20px',
+          'width': '90%',
+          'background-color': '#f2f2f2',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+        <ngx-skeleton-loader [count]="3" [theme]="{
+          'border-radius': '10px',
+          'height': '20px',
+          'width': '30%',
+          'margin': '5px 200px 5px 0',
+          'background-color': '#f2f2f2',
+          border: '1px solid white'}">
+        </ngx-skeleton-loader>
+      </div>
+    </div>
+
+    <div class="skeleton-card" *ngIf="loadData == true">
+
+      <div class="img">
+        <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '100%',
+          'width': '100%',
+          'background-color': '#f2f2f2',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+      </div>
+
+      <div class="body">
+        <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '30px',
+          'width': '80%',
+          'background-color': '#f2f2f2',
+          border: '1px solid white'}">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '20px',
+          'width': '90%',
+          'background-color': '#f2f2f2',
+          border: '1px solid white'}">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader [count]="3" [theme]="{
+          'border-radius': '10px',
+          'height': '20px',
+          'width': '30%',
+          'margin': '5px 200px 5px 0',
+          'background-color': '#f2f2f2',
+          border: '1px solid white'}">
+        </ngx-skeleton-loader>
+      </div>
+    </div>
 
       <mat-card class="card" *ngFor="let item of usuario">
         <mat-card-header>
           <img [src]="linkDefault" alt="">
         </mat-card-header>
         <mat-card-content>
-          <a routerLink="/entregadores-page" class="link">{{ item.nome }}</a>
+          <a routerLink="/entregadores-page" class="link">{{ item.nome}}</a>
           <p class="paragraph">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.

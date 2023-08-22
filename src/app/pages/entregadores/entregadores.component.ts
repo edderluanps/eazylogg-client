@@ -1,44 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
-
-interface Selecao {
-  value: string;
-  viewValue: string;
-}
-
-export interface Task {
-  name: string;
-  completed: boolean;
-  color: ThemePalette;
-  subtasks?: Task[];
-}
 
 @Component({
   selector: 'app-entregadores',
   templateUrl: './entregadores.component.html',
   styleUrls: ['./entregadores.component.css']
 })
+
 export class EntregadoresComponent implements OnInit {
 
-  itensCount = 1;
   linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
 
-  usuario: Usuario[];
+  usuario: Usuario[] | any;
+
+  loadData = true;
 
   ordenar = new FormControl('');
   estado = new FormControl('');
   cidade = new FormControl('');
   porte = new FormControl('');
-  pesquisa = new FormControl('');
+  pesquisa : string;
 
   constructor(private router : Router, private usuarioService : UsuarioService){}
 
   ngOnInit(): void {
-    this.getPacotes();
+    this.getUsuariosEntregadores();
   }
 
   getHomePage(){
@@ -88,12 +77,11 @@ export class EntregadoresComponent implements OnInit {
 
   //Pesquisa
   pesquisar(){
-    alert(this.pesquisa.value);
-    this.limparPesquisa();
+    alert(this.pesquisa);
   }
 
   limparPesquisa(){
-    this.pesquisa = new FormControl('');
+    this.pesquisa = '';
   }
 
   //Filtrar
@@ -106,8 +94,17 @@ export class EntregadoresComponent implements OnInit {
   }
 
   //Get Usuário
-  getPacotes() {
-    this.usuarioService.getUsuario().subscribe(response => this.usuario = response, error => {
+  getUsuariosEntregadores() {
+    this.loadData = false;
+    this.usuarioService.getUsuarioEntregador().subscribe(response => this.usuario = response, error => {
+     alert('Oops... Ocorreu um erro: ' + error.message);
+    });
+  }
+
+  //Pesquisa
+  getPesquisaUsuario() {
+    this.loadData = false;
+    this.usuarioService.getPesquisaUsuario(this.pesquisa).subscribe(response => this.usuario = response, error => {
      alert('Oops... Ocorreu um erro: ' + error.message);
     });
   }

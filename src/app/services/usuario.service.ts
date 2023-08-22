@@ -19,4 +19,12 @@ export class UsuarioService {
     return this.httpClient.get(`${API_TEST_URL}eazylogg/usuario/${id}`);
   }
 
+  getUsuarioEntregador(){
+    return this.httpClient.get(`${API_TEST_URL}eazylogg/usuario/entregadores?categoria=entregador`);
+  }
+
+  getPesquisaUsuario(pesquisa: string){
+    return this.httpClient.get(`${API_TEST_URL}eazylogg/usuario/pesquisa?pesquisa=${pesquisa}&categoria=Entregador`);
+  }
+
 }

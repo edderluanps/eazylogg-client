@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,6 +22,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
 import { EntregasComponent } from './pages/entregas/entregas.component';
 import { EntregadoresComponent } from './pages/entregadores/entregadores.component';
 import { RastreamentoComponent } from './pages/rastreamento/rastreamento.component';
@@ -37,6 +40,9 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component';
 import { DialogComponent } from './pages/dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
+registerLocaleData(localePt, 'pt');
 
 @NgModule({
   declarations: [
@@ -62,6 +68,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxSkeletonLoaderModule,
     FormsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -79,8 +86,15 @@ import { HttpClientModule } from '@angular/common/http';
     MatExpansionModule,
     MatDialogModule,
     MatRadioModule
-  ],
-  providers: [],
+],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt'
+  },
+  {
+    provide: DEFAULT_CURRENCY_CODE,
+    useValue: 'BRL'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

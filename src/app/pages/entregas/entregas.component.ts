@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { Pacote } from 'src/app/models/pacote';
 import { PacoteService } from 'src/app/services/pacote.service';
@@ -13,16 +12,17 @@ import { PacoteService } from 'src/app/services/pacote.service';
 
 export class EntregasComponent implements OnInit {
 
-  itensCount = 1;
   linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
 
-  pacote : Pacote[];
+  pacote : Pacote[] | any;
+
+  loadData = true;
 
   ordenar = new FormControl('');
   estado = new FormControl('');
   cidade = new FormControl('');
   porte = new FormControl('');
-  pesquisa = new FormControl('');
+  pesquisa : string;
 
   constructor(private router : Router, private pacoteService : PacoteService){}
 
@@ -77,12 +77,12 @@ export class EntregasComponent implements OnInit {
 
   //Pesquisa
   pesquisar(){
-    alert(this.pesquisa.value);
+    alert(this.pesquisa);
     this.limparPesquisa();
   }
 
   limparPesquisa(){
-    this.pesquisa = new FormControl('');
+    this.pesquisa = '';
   }
 
   //Filtrar
@@ -94,10 +94,19 @@ export class EntregasComponent implements OnInit {
     this.ordenar = new FormControl('');
   }
 
-  //Get Usuarios
+  //Get Pacotes
   getPacotes() {
+    this.loadData = false;
     this.pacoteService.getPacotes().subscribe(response => this.pacote = response, error => {
      alert('Oops... Ocorreu um erro: ' + error.message);
     });
   }
+
+    //Get Pacotes
+    getPesquisa() {
+      this.loadData = false;
+      this.pacoteService.getPesquisaPacote(this.pesquisa).subscribe(response => this.pacote = response, error => {
+       alert('Oops... Ocorreu um erro: ' + error.message);
+      });
+    }
 }

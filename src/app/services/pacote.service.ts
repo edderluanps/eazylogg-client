@@ -19,4 +19,8 @@ export class PacoteService {
     return this.httpClient.get(`${API_TEST_URL}eazylogg/pacote/${id}`);
   }
 
+  getPesquisaPacote(pesquisa: string){
+    return this.httpClient.get(`${API_TEST_URL}eazylogg/pacote/pesquisa?descricao=${pesquisa}`);
+  }
+
 }

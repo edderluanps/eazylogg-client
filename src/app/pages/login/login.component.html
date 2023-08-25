@@ -4,13 +4,13 @@
     <mat-card>
       <mat-form-field>
         <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+        <input matInput placeholder="pat@example.com" [(ngModel)]="credenciais.email" required>
         <mat-error>Campo brigatório*</mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="senha" required>
+        <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="credenciais.senha" required>
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>

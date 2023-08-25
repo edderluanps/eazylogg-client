@@ -26,7 +26,7 @@
       <h2><i class="fa-solid fa-home"></i>
         <a routerLink="/">Home</a> >
         <a routerLink="/entregas">Entregas</a> >
-        <a class="selected" routerLink="/entregas-page">Entrega nome</a>
+        <a class="selected" routerLink="/entregas-page">{{ pacote?.descricao }}</a>
       </h2>
     </span>
 
@@ -36,8 +36,8 @@
       </div>
 
       <div class="col">
-        <h2 class="title">Roupas - Loja online</h2>
-        <h2 class="card-title"> <i class="fa-solid fa-weight"></i> Porte: Leve</h2>
+        <h2 class="title">{{ pacote?.descricao }}</h2>
+        <h2 class="card-title"> <i class="fa-solid fa-weight"></i> Porte: {{ pacote?.porte }}</h2>
         <h2 class="card-title"> <i class="fa-solid fa-user"></i> Por: Ana da Silva</h2>
         <h2 class="card-title"> <i class="fa-solid fa-map"></i> Local: Recife-PE</h2>
         <h2 class="card-title"> <i class="fa-solid fa-calendar"></i> Data aprox. entrega: 10/10/2023</h2>
@@ -56,7 +56,7 @@
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus illum, eveniet deleniti laudantium aperiam similique autem omnis, rem voluptate dolores distinctio. Vel corrupti quasi, esse temporibus vitae unde odio est.
         </p>
         <br>
-        <button mat-raised-button color="primary" style="width: 100%; height: 50px; border-radius: 10px;">
+        <button mat-raised-button color="primary" routerLink="/confirmacao" style="width: 100%; height: 50px; border-radius: 10px;">
           <i class="fa-solid fa-handshake"></i>
           Aceitar entrega
         </button>

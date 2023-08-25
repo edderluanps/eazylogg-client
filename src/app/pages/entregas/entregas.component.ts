@@ -14,7 +14,7 @@ export class EntregasComponent implements OnInit {
 
   linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
 
-  pacote : Pacote[] | any;
+  pacote: Pacote[] | any;
 
   loadData = true;
 
@@ -22,43 +22,43 @@ export class EntregasComponent implements OnInit {
   estado = new FormControl('');
   cidade = new FormControl('');
   porte = new FormControl('');
-  pesquisa : string;
+  pesquisa: string;
 
-  constructor(private router : Router, private pacoteService : PacoteService){}
+  constructor(private router: Router, private pacoteService: PacoteService) { }
 
   ngOnInit(): void {
     this.getPacotes();
   }
 
-  getHomePage(){
+  getHomePage() {
     this.router.navigate(['/']);
   }
 
-  getEntregasPage(){
+  getEntregasPage() {
     this.router.navigate(['/entregas-page']);
   }
 
-  getEntregas(){
+  getEntregas() {
     this.router.navigate(['/entregas']);
   }
 
-  getEntregadores(){
+  getEntregadores() {
     this.router.navigate(['/entregadores']);
   }
 
-  getRastreamento(){
+  getRastreamento() {
     this.router.navigate(['/rastreamento']);
   }
 
-  getSobre(){
+  getSobre() {
     this.router.navigate(['/sobre']);
   }
 
-  getLogin(){
+  getLogin() {
     this.router.navigate(['/login']);
   }
 
-  getSignup(){
+  getSignup() {
     this.router.navigate(['/signup']);
   }
 
@@ -76,21 +76,21 @@ export class EntregasComponent implements OnInit {
   }
 
   //Pesquisa
-  pesquisar(){
+  pesquisar() {
     alert(this.pesquisa);
     this.limparPesquisa();
   }
 
-  limparPesquisa(){
+  limparPesquisa() {
     this.pesquisa = '';
   }
 
   //Filtrar
-  filtros(){
+  filtros() {
     alert(this.ordenar.value + '\n' + this.estado.value + '\n' + this.cidade.value + '\n' + this.porte.value);
   }
 
-  limparFiltros(){
+  limparFiltros() {
     this.ordenar = new FormControl('');
   }
 
@@ -98,15 +98,22 @@ export class EntregasComponent implements OnInit {
   getPacotes() {
     this.loadData = false;
     this.pacoteService.getPacotes().subscribe(response => this.pacote = response, error => {
-     alert('Oops... Ocorreu um erro: ' + error.message);
+      alert('Oops... Ocorreu um erro: ' + error.message);
     });
   }
 
-    //Get Pacotes
-    getPesquisa() {
-      this.loadData = false;
-      this.pacoteService.getPesquisaPacote(this.pesquisa).subscribe(response => this.pacote = response, error => {
-       alert('Oops... Ocorreu um erro: ' + error.message);
-      });
-    }
+  //Get Pacotes
+  getPesquisa() {
+    this.loadData = false;
+    this.pacoteService.getPesquisaPacote(this.pesquisa).subscribe(response => this.pacote = response, error => {
+      alert('Oops... Ocorreu um erro: ' + error.message);
+    });
+  }
+
+  //Get Pacote por id
+  getPacotesById(id: number) {
+    this.pacoteService.getPacoteById(id).subscribe(response => this.pacote = response, error => {
+      alert('Oops... Ocorreu um erro: ' + error.message);
+    });
+  }
 }

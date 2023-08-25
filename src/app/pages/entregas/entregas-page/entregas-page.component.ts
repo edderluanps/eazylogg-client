@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Pacote } from 'src/app/models/pacote';
+import { PacoteService } from 'src/app/services/pacote.service';
 
 @Component({
   selector: 'app-entregas-page',
@@ -10,10 +12,15 @@ export class EntregasPageComponent implements OnInit {
 
   linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
 
-  constructor(private router : Router){}
+  pacote : Pacote | any;
+
+  constructor(
+    private pacoteService : PacoteService,
+    private router : Router,
+    private route : ActivatedRoute){}
 
   ngOnInit(): void {
-
+    this.route.params.subscribe(params => this.getPacotesId(params['id']));
   }
 
   getHomePage(){
@@ -44,4 +51,9 @@ export class EntregasPageComponent implements OnInit {
     this.router.navigate(['/signup']);
   }
 
+  getPacotesId(id: number){
+    this.pacoteService.getPacoteById(id).subscribe(response => {
+      this.pacote = response
+    });
+  }
 }

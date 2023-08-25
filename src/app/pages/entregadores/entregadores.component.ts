@@ -93,7 +93,7 @@ export class EntregadoresComponent implements OnInit {
     this.ordenar = new FormControl('');
   }
 
-  //Get Usuário
+  //Get Usuários
   getUsuariosEntregadores() {
     this.loadData = false;
     this.usuarioService.getUsuarioEntregador().subscribe(response => this.usuario = response, error => {
@@ -105,6 +105,13 @@ export class EntregadoresComponent implements OnInit {
   getPesquisaUsuario() {
     this.loadData = false;
     this.usuarioService.getPesquisaUsuario(this.pesquisa).subscribe(response => this.usuario = response, error => {
+     alert('Oops... Ocorreu um erro: ' + error.message);
+    });
+  }
+
+  //Get Usuário por id
+  getPostById(id: number){
+    this.usuarioService.getUsuarioById(id).subscribe(response => this.usuario = response, error => {
      alert('Oops... Ocorreu um erro: ' + error.message);
     });
   }

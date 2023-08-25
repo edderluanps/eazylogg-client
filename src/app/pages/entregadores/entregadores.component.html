@@ -189,7 +189,7 @@
           <img [src]="linkDefault" alt="">
         </mat-card-header>
         <mat-card-content>
-          <a routerLink="/entregadores-page" class="link">{{ item.nome}}</a>
+          <a [routerLink]="['/entregadores-page', item.id]" class="link">{{ item.nome}}</a>
           <p class="paragraph">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque numquam, ad nesciunt explicabo iure amet.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.

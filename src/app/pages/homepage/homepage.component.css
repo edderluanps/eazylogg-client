@@ -266,6 +266,23 @@
   margin-top: 50px;
 }
 
+.skeleton-cards{
+  position: absolute;
+  height: 300px;
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.skeleton-cards .skeleton-card{
+  height: 90%;
+  width: 320px;
+  background: #f2f2f2;
+  border-radius: 10px;
+  padding: 15px;
+}
 
 /*Servicos*/
 .container .services-area{

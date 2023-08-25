@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Pacote } from 'src/app/models/pacote';
+import { PacoteService } from 'src/app/services/pacote.service';
 
 @Component({
   selector: 'app-homepage',
@@ -10,42 +12,56 @@ export class HomepageComponent implements OnInit {
 
   linkDefault: string = 'https://rafaturis.com.br/wp-content/uploads/2014/01/default-placeholder.png';
 
-  constructor(private router : Router){}
+  loadData : boolean = true;
+
+  pacote: Pacote[] | any;
+
+  constructor(
+    private pacoteService: PacoteService,
+    private router: Router) { }
 
   ngOnInit(): void {
-
+    this.getUltimosPacotes();
   }
 
-  getHomePage(){
+  getHomePage() {
     this.router.navigate(['/']);
   }
 
-  getEntregas(){
+  getEntregas() {
     this.router.navigate(['/entregas']);
   }
 
-  getNovaEntrega(){
+  getNovaEntrega() {
     this.router.navigate(['/nova-entrega']);
   }
 
-  getEntregadores(){
+  getEntregadores() {
     this.router.navigate(['/entregadores']);
   }
 
-  getRastreamento(){
+  getRastreamento() {
     this.router.navigate(['/rastreamento']);
   }
 
-  getSobre(){
+  getSobre() {
     this.router.navigate(['/sobre']);
   }
 
-  getLogin(){
+  getLogin() {
     this.router.navigate(['/login']);
   }
 
-  getSignup(){
+  getSignup() {
     this.router.navigate(['/signup']);
+  }
+
+  //Get Ultimos Pacotes
+  getUltimosPacotes() {
+    this.loadData = false;
+    this.pacoteService.getUltimosPacotes().subscribe(response => this.pacote = response, error => {
+      alert('Oops... Ocorreu um erro: ' + error.message);
+    });
   }
 
 }

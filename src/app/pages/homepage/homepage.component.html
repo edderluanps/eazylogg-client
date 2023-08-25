@@ -58,61 +58,125 @@
   <div class="anuncios-area">
     <h2 class="title-3">Ultimos anuncios</h2>
 
+    <div class="skeleton-cards">
+      <div class="skeleton-card" *ngIf="loadData == true">
+        <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '60%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+
+      <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '8%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+
+      <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '16%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+      </div>
+
+      <div class="skeleton-card" *ngIf="loadData == true">
+        <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '60%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+
+      <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '8%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+
+      <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '16%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+      </div>
+
+      <div class="skeleton-card" *ngIf="loadData == true">
+        <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '60%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+
+      <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '8%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+
+      <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '16%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+      </div>
+
+      <div class="skeleton-card" *ngIf="loadData == true">
+        <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '60%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+
+      <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '8%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+
+      <ngx-skeleton-loader [count]="1" [theme]="{
+          'border-radius': '10px',
+          'height': '16%',
+          'width': '100%',
+          'background-color': '#D9D9D9',
+          border: '1px solid white'}">
+      </ngx-skeleton-loader>
+      </div>
+    </div>
+
     <div class="cards">
 
-      <mat-card class="card">
+      <mat-card class="card" *ngFor="let item of pacote">
         <mat-card-header>
           <img [src]="linkDefault" alt="">
         </mat-card-header>
 
         <mat-card-content>
-          <a routerLink="/entregas-page" class="card-title">Entrega para João Pessoa - PB</a>
+          <a routerLink="/entregas-page" class="card-title" style="font-size: 16px;">{{ item.descricao }}</a>
         </mat-card-content>
 
         <mat-card-footer align="end">
-          <h2 class="title-3">R$ 30.00</h2>
-        </mat-card-footer>
-      </mat-card>
-
-      <mat-card class="card">
-        <mat-card-header>
-          <img [src]="linkDefault" alt="">
-        </mat-card-header>
-
-        <mat-card-content>
-          <a routerLink="/entregas-page" class="card-title">Entrega para João Pessoa - PB</a>
-        </mat-card-content>
-
-        <mat-card-footer align="end">
-          <h2 class="title-3">R$ 30.00</h2>
-        </mat-card-footer>
-      </mat-card>
-
-      <mat-card class="card">
-        <mat-card-header>
-          <img [src]="linkDefault" alt="">
-        </mat-card-header>
-
-        <mat-card-content>
-          <a routerLink="/entregas-page" class="card-title">Entrega para João Pessoa - PB</a>
-        </mat-card-content>
-
-        <mat-card-footer align="end">
-          <h2 class="title-3">R$ 30.00</h2>
-        </mat-card-footer>
-      </mat-card>
-
-      <mat-card class="card">
-        <mat-card-header>
-          <img [src]="linkDefault" alt="">
-        </mat-card-header>
-
-        <mat-card-content>
-          <a routerLink="/entregas-page" class="card-title">Entrega para João Pessoa - PB</a>
-        </mat-card-content>
-
-        <mat-card-footer align="end">
-          <h2 class="title-3">R$ 30.00</h2>
+          <h2 class="title-3" style="font-size: 25px;">{{ item.valor | currency }}</h2>
         </mat-card-footer>
       </mat-card>
 

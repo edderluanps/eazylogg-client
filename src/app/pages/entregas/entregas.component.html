@@ -189,7 +189,7 @@
           <img [src]="linkDefault" alt="">
         </mat-card-header>
         <mat-card-content>
-          <a routerLink="/entregas-page" class="link">{{ item.descricao }}</a>
+          <a [routerLink]="['/entregas-page', item.id]"class="link">{{ item.descricao }}</a>
           <p class="paragraph">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quam, ut consequuntur atque debitis totam maxime ipsum perferendis deserunt nulla voluptas delectus harum eaque dolorum quibusdam aut distinctio quo? Voluptas.
           </p>

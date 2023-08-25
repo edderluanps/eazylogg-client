@@ -17,10 +17,10 @@ import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component'
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'entregas', component: EntregasComponent },
-  { path: 'entregas-page', component: EntregasPageComponent },
+  { path: 'entregas-page/:id', component: EntregasPageComponent },
   { path: 'nova-entrega', component: FormEntregaComponent },
   { path: 'entregadores', component: EntregadoresComponent },
-  { path: 'entregadores-page', component: EntregadoresPageComponent },
+  { path: 'entregadores-page/:id', component: EntregadoresPageComponent },
   { path: 'rastreamento', component: RastreamentoComponent },
   { path: 'sobre', component: SobreComponent },
   { path: 'login', component: LoginComponent },

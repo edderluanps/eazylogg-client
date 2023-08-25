@@ -13,9 +13,11 @@ import { EntregasPageComponent } from './pages/entregas/entregas-page/entregas-p
 import { FormEntregaComponent } from './pages/entregas/form-entrega/form-entrega.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
+  { path: 'perfil', component: PerfilComponent },
   { path: 'entregas', component: EntregasComponent },
   { path: 'entregas-page/:id', component: EntregasPageComponent },
   { path: 'nova-entrega', component: FormEntregaComponent },

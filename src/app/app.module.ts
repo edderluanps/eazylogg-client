@@ -41,6 +41,7 @@ import { ConfirmacaoComponent } from './pages/confirmacao/confirmacao.component'
 import { DialogComponent } from './pages/dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -61,6 +62,7 @@ registerLocaleData(localePt, 'pt');
     CheckoutComponent,
     ConfirmacaoComponent,
     DialogComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

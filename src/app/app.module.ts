@@ -21,6 +21,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
@@ -42,6 +44,8 @@ import { DialogComponent } from './pages/dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { AuthInterceptorProvider } from './interceptor/auth-interceptor';
+import { ErrorInterceptorProvider } from './interceptor/error-interceptor';
 
 registerLocaleData(localePt, 'pt');
 
@@ -62,7 +66,7 @@ registerLocaleData(localePt, 'pt');
     CheckoutComponent,
     ConfirmacaoComponent,
     DialogComponent,
-    PerfilComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -87,9 +91,12 @@ registerLocaleData(localePt, 'pt');
     MatStepperModule,
     MatExpansionModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSidenavModule,
+    MatTableModule
 ],
-  providers: [{
+providers: [AuthInterceptorProvider, ErrorInterceptorProvider,
+  {
     provide: LOCALE_ID,
     useValue: 'pt'
   },
@@ -97,6 +104,6 @@ registerLocaleData(localePt, 'pt');
     provide: DEFAULT_CURRENCY_CODE,
     useValue: 'BRL'
   }],
-  bootstrap: [AppComponent]
+bootstrap: [AppComponent]
 })
 export class AppModule { }

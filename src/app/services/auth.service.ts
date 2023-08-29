@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { CredenciaisDTO } from '../pages/login/credenciais.dto';
+import { CredenciaisDTO } from '../models/credenciais.dto';
 import { LocalUser } from '../pages/login/local_user';
 import { API_TEST_URL } from 'src/environments/environment';
 import { StorageService } from './storage.service';
@@ -11,11 +11,11 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
 
+  private jwtHelper: JwtHelperService = new JwtHelperService();
 
-
-  jwtHelper : JwtHelperService = new JwtHelperService();
-
-  constructor(private httpClient: HttpClient, public storage : StorageService) { }
+  constructor(
+    private httpClient: HttpClient,
+    public storage : StorageService) { }
 
   authenticate(credenciais: CredenciaisDTO){
     return this.httpClient.post(`${API_TEST_URL}login`, credenciais, {
@@ -32,9 +32,12 @@ export class AuthService {
     this.storage.setLocalUser(user);
   }
 
-  /*
-  logout(){
-    this.storage.setLocalUser();
+  logOut(){
+    let user : LocalUser = {
+      token: '',
+      email: ''
+    }
+    this.storage.setLocalUser(user);
   }
-  */
+
 }

@@ -1,11 +1,143 @@
-<div style="height: 100%; width: auto; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-  <h2>Perfil</h2>
+<div class="container">
 
-  <h1>Usuário:</h1>
-  <span>Nome</span>
-  <br />
-  <span>{{ email }}</span>
+  <div class="navbar">
 
-  <button mat-raised-button color="warn">Deslogar</button>
+    <div class="bars">
+      <img src="../../../assets/logos/logo1.png" alt="">
+      <h2 class="card-title">Eazylogg</h2>
+    </div>
+
+    <div class="info">
+      <i class="fa-solid fa-info-circle"></i>
+      <i class="fa-solid fa-message"></i>
+      <i class="fa-solid fa-user"></i>
+    </div>
+
+  </div>
+
+  <div class="content">
+
+    <mat-card class="cards">
+
+      <div class="resumo-card">
+        <div class="perfil">
+          <i class="fa-solid fa-user-circle"></i>
+          <h2 class="title-2">{{ usuario.nome }}</h2>
+          <span></span>
+          <p class="card-title">{{ user.categoria }}</p>
+          <p class="paragraph">{{ usuario.email }}</p>
+        </div>
+
+        <div class="menu">
+
+          <mat-card class="menu-item">
+            <p class="paragraph"><i class="fa-solid fa-info-circle"></i>Dados pessoais</p>
+          </mat-card>
+
+          <mat-card class="menu-item" *ngIf="user.categoria == 'Entregador'">
+            <p class="paragraph"><i class="fa-solid fa-truck"></i>Entregas</p>
+          </mat-card>
+
+          <mat-card class="menu-item" *ngIf="user.categoria == 'Contratante'">
+            <p class="paragraph"><i class="fa-solid fa-truck"></i>Anuncios</p>
+          </mat-card>
+
+          <mat-card class="menu-item">
+            <p class="paragraph"><i class="fa-solid fa-gear"></i>Configuração</p>
+          </mat-card>
+
+          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'">
+            <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de entregas</p>
+          </mat-card>
+
+          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'">
+            <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de usuarios</p>
+          </mat-card>
+
+          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'">
+            <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de pacotes anunciados</p>
+          </mat-card>
+
+          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'">
+            <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de veículos</p>
+          </mat-card>
+
+          <mat-card class="menu-item" (click)="logout()" >
+            <p class="paragraph"><i class="fa-solid fa-close"></i>Desconectar</p>
+          </mat-card>
+
+        </div>
+      </div>
+
+      <div class="dashboard">
+
+        <mat-card class="dados">
+
+          <mat-card-header>
+            <h2 class="title-3">Dados pessoais</h2>
+          </mat-card-header>
+
+          <mat-card-content>
+
+            <h2 class="card-title" *ngIf="user.tipoCliente == 'PESSOA_FISICA'">CPF: {{ user.cpfOuCnpj }}</h2>
+            <h2 class="card-title" *ngIf="user.tipoCliente == 'PESSOA_JURIDICA'">CNPJ: {{ user.cpfOuCnpj }}</h2>
+            <h2 class="card-title">Data de nacimento: {{ user.dataNascimento }}</h2>
+            <h2 class="card-title">Usuario desde: {{ user.dataCadastro }}</h2>
+            <h2 class="card-title">CPF/CNPJ: {{ user.cpfOuCnpj }}</h2>
+            <h2 class="card-title">Telefones: {{ user.telefone }}</h2>
+
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="dados">
+
+          <mat-card-header>
+            <h2 class="title-3">Endereços</h2>
+          </mat-card-header>
+
+          <mat-card-content>
+
+            <h2 class="card-title" *ngFor="let item of items">
+              {{ item.logradouro }}, {{ item.numero }}, {{ item.complemento
+              }}, {{ item.bairro }}, {{ item.cidade }} - {{item.estado }}
+            </h2>
+
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card  class="dados">
+
+          <mat-card-header>
+            <h2 class="title-3" *ngIf="user.categoria == 'Contratante'">Anuncios</h2>
+            <h2 class="title-3" *ngIf="user.categoria == 'Entregador'">Entregas</h2>
+          </mat-card-header>
+          <mat-card-content>
+            <table class="tabela">
+              <tr>
+                <th>Cod.</th>
+                <th>Company</th>
+                <th>Contact</th>
+                <th>Country</th>
+                <th>Ações</th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+                <td>
+                  <button mat-raised-button color="primary">Editar</button>
+                  <button mat-raised-button color="warn">Excluir</button>
+                </td>
+              </tr>
+            </table>
+          </mat-card-content>
+        </mat-card>
+
+
+      </div>
+
+    </mat-card>
+  </div>
 
 </div>

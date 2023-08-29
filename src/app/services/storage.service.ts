@@ -8,22 +8,23 @@ import { STORAGE_KEYS } from '../pages/login/storage_keys.config';
 })
 export class StorageService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor() { }
 
-  getLocalUser() : LocalUser | null{
-    let localUser = localStorage.getItem(STORAGE_KEYS.localUser);
-    if (localUser == null) {
-        return null;
-    } else {
-      return JSON.parse(localUser);
+  getLocalUser() : LocalUser | any{
+    let userLocal = localStorage.getItem(STORAGE_KEYS.localUser);
+    if(userLocal == null){
+      return null;
+    }
+    else{
+      return JSON.parse(userLocal);
     }
   }
 
-  setLocalUser(objeto: LocalUser){
-    if (objeto == null) {
+  setLocalUser(local : LocalUser){
+    if(local == null){
       localStorage.removeItem(STORAGE_KEYS.localUser);
-    } else {
-      localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(objeto));
+    }else{
+      localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(local));
     }
   }
 

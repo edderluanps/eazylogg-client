@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DialogComponent } from '../dialog/dialog.component';
-import { CredenciaisDTO } from './credenciais.dto';
+import { CredenciaisDTO } from '../../models/credenciais.dto';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  credenciais : CredenciaisDTO = {
+  credenciais: CredenciaisDTO = {
     email: "",
     senha: ""
   };
@@ -44,21 +44,11 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/signup']);
   }
 
-  login0() {
-    if (this.email.value === '') {
-      alert('Preencha o email');
-    } else if (this.senha.value === '') {
-      alert('Preencha o senha');
-    } else {
-      alert(this.email.value + '\n' + this.senha.value);
-    }
-  }
-
-  login(){
+  login() {
     this.authService.authenticate(this.credenciais).subscribe(response => {
-     this.authService.successfulLogin(response.headers.get('Authorization') || '{}');
-     this.router.navigate(['']);
-     alert('Logado :]');
+      this.authService.successfulLogin(response.headers.get('Authorization') || '{}');
+      this.router.navigate(['']);
+      alert('Logado :]');
     }, error => {
       alert('Não está logado :[' + error.erro);
     });

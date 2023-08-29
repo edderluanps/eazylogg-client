@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { API_TEST_URL } from 'src/environments/environment';
 import { Usuario } from '../models/usuario';
 import { Observable } from 'rxjs';
+import { UsuarioDTO } from '../models/usuario.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,10 @@ export class UsuarioService {
 
   getPesquisaUsuario(pesquisa: string){
     return this.httpClient.get(`${API_TEST_URL}eazylogg/usuario/pesquisa?pesquisa=${pesquisa}&categoria=Entregador`);
+  }
+
+  getUsuarioByEmail(email: string) : Observable<UsuarioDTO>{
+    return this.httpClient.get<UsuarioDTO>(`${API_TEST_URL}eazylogg/usuario/email?value=${email}`);
   }
 
 }

@@ -1,3 +1,4 @@
+import { Endereco } from "./endereco";
 import { Pacote } from "./pacote";
 import { Usuario } from "./usuario";
 
@@ -8,7 +9,7 @@ export class Entrega{
   pacoteId: Pacote[] | any;
   dataColeta: string;
   dataEntrega: string;
-  enderecoColetaId: String[];
+  enderecoColetaId: Endereco;
   pagamento: String[];
   status: number;
   valor: number;

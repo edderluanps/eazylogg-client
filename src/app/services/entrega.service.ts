@@ -18,4 +18,8 @@ export class EntregaService {
   getEntregaById(id: number){
     return this.httpClient.get(`${API_TEST_URL}eazylogg/entrega/${id}`);
   }
+
+  getEntregaByUsuario(entId: number){
+    return this.httpClient.get(`${API_TEST_URL}eazylogg/entrega/entregas-realizadas?entId=${entId}`);
+  }
 }

@@ -27,4 +27,8 @@ export class PacoteService {
     return this.httpClient.get<Pacote[]>(`${API_TEST_URL}eazylogg/pacote/ultimos-resultados`);
   }
 
+  getPacoteByUsuario(contId: number){
+    return this.httpClient.get(`${API_TEST_URL}eazylogg/pacote/pacotes-contratante?contId=${contId}`);
+  }
+
 }

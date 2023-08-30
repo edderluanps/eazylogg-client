@@ -265,7 +265,6 @@
   background: #F2F2F2;
   border-radius: 0 10px 10px 0;
   padding: 10px;
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -273,20 +272,28 @@
 }
 
 .container .content .cards .dashboard .dados{
-  min-height: 100px;
-  height: auto;
+  min-height: 150px;
+  max-height: 600px;
   width: 100%;
   margin: 10px 0;
 }
 
+mat-tab-group{
+  min-height: 150px;
+  max-height: 300px;
+}
+
 .container .content .cards .dashboard .dados .tabela {
+  max-height: 500px;
   border-collapse: collapse;
   width: 100%;
+  overflow: scroll;
 }
 
 .container .content .cards .dashboard .dados .tabela td, .tabela th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 5px;
+  text-align: center;
 }
 
 .container .content .cards .dashboard .dados .tabela tr:nth-child(even){
@@ -302,9 +309,14 @@
 }
 
 .container .content .cards .dashboard .dados .tabela th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
+  text-align: center;
   background-color: #a1a1a1;
   color: #1a1a1a;
+}
+
+.container .content .cards .dashboard .dados .tabela .acoes{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }

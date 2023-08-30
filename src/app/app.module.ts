@@ -23,6 +23,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTabsModule } from '@angular/material/tabs';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
@@ -93,7 +95,9 @@ registerLocaleData(localePt, 'pt');
     MatDialogModule,
     MatRadioModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule,
+    MatMenuModule,
+    MatTabsModule
 ],
 providers: [AuthInterceptorProvider, ErrorInterceptorProvider,
   {

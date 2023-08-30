@@ -8,9 +8,24 @@
     </div>
 
     <div class="info">
-      <i class="fa-solid fa-info-circle"></i>
-      <i class="fa-solid fa-message"></i>
-      <i class="fa-solid fa-user"></i>
+
+      <button mat-icon-button>
+        <mat-icon>question_answer</mat-icon>
+      </button>
+
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/">
+          <mat-icon>home</mat-icon>
+          <span>Página principal</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Desconectar</span>
+        </button>
+      </mat-menu>
     </div>
 
   </div>
@@ -46,19 +61,19 @@
             <p class="paragraph"><i class="fa-solid fa-gear"></i>Configuração</p>
           </mat-card>
 
-          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'">
+          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'" (click)="primeiroSlide()">
             <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de entregas</p>
           </mat-card>
 
-          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'">
+          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'" (click)="segundoSlide()">
             <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de usuarios</p>
           </mat-card>
 
-          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'">
+          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'" (click)="terceiroSlide()">
             <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de pacotes anunciados</p>
           </mat-card>
 
-          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'">
+          <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'" (click)="quartoSlide()">
             <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de veículos</p>
           </mat-card>
 
@@ -79,12 +94,12 @@
 
           <mat-card-content>
 
-            <h2 class="card-title" *ngIf="user.tipoCliente == 'PESSOA_FISICA'">CPF: {{ user.cpfOuCnpj }}</h2>
-            <h2 class="card-title" *ngIf="user.tipoCliente == 'PESSOA_JURIDICA'">CNPJ: {{ user.cpfOuCnpj }}</h2>
-            <h2 class="card-title">Data de nacimento: {{ user.dataNascimento }}</h2>
-            <h2 class="card-title">Usuario desde: {{ user.dataCadastro }}</h2>
-            <h2 class="card-title">CPF/CNPJ: {{ user.cpfOuCnpj }}</h2>
-            <h2 class="card-title">Telefones: {{ user.telefone }}</h2>
+            <p class="paragraph" *ngIf="user.tipoCliente == 'PESSOA_FISICA'">CPF: {{ user.cpfOuCnpj }}</p>
+            <p class="paragraph" *ngIf="user.tipoCliente == 'PESSOA_JURIDICA'">CNPJ: {{ user.cpfOuCnpj }}</p>
+            <p class="paragraph">Data de nacimento: {{ user.dataNascimento }}</p>
+            <p class="paragraph">Usuario desde: {{ user.dataCadastro }}</p>
+            <p class="paragraph">CPF/CNPJ: {{ user.cpfOuCnpj }}</p>
+            <p class="paragraph">Telefones: {{ user.telefone }}</p>
 
           </mat-card-content>
         </mat-card>
@@ -97,10 +112,11 @@
 
           <mat-card-content>
 
-            <h2 class="card-title" *ngFor="let item of items">
-              {{ item.logradouro }}, {{ item.numero }}, {{ item.complemento
-              }}, {{ item.bairro }}, {{ item.cidade }} - {{item.estado }}
-            </h2>
+            <p class="paragraph" *ngFor="let item of items">
+              {{ item.logradouro }}, {{ item.numero }}, {{ item.bairro }}, {{ item.cidade }} - {{item.estado }}
+              <br>
+              Complemento: {{ item.complemento || 'Sem complemento' }}
+            </p>
 
           </mat-card-content>
         </mat-card>
@@ -109,28 +125,172 @@
 
           <mat-card-header>
             <h2 class="title-3" *ngIf="user.categoria == 'Contratante'">Anuncios</h2>
-            <h2 class="title-3" *ngIf="user.categoria == 'Entregador'">Entregas</h2>
+            <h2 class="title-3">{{ label }}</h2>
           </mat-card-header>
-          <mat-card-content>
+
+          <mat-card-content *ngIf="user.categoria == 'Contratante'">
             <table class="tabela">
               <tr>
                 <th>Cod.</th>
-                <th>Company</th>
-                <th>Contact</th>
-                <th>Country</th>
+                <th>Descrição</th>
+                <th>Porte</th>
+                <th>Destinatario</th>
+                <th>Endereço entrega</th>
+                <th>CEP entrega</th>
+                <th>Obs</th>
+                <th>Valor</th>
                 <th>Ações</th>
               </tr>
-              <tr>
-                <td>1</td>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-                <td>
-                  <button mat-raised-button color="primary">Editar</button>
-                  <button mat-raised-button color="warn">Excluir</button>
+              <tr *ngFor="let pac of pacote">
+                <td>{{ pac.id }}</td>
+                <td>{{ pac.descricao }}</td>
+                <td>{{ pac.porte }}</td>
+                <td>{{ pac.nomeDestinatario }}</td>
+                <td>{{ pac.enderecoEntrega }}</td>
+                <td>{{ pac.cepDestinatario }}</td>
+                <td>{{ pac.obs || 'Sem obs.' }}</td>
+                <td>{{ pac.valor | currency }}</td>
+                <td class="acoes">
+                  <button mat-raised-button color="primary" style="width: 100px;">
+                    <mat-icon>edit</mat-icon> Editar
+                  </button>
+                  <button mat-raised-button color="warn" style="width: 100px; margin: 0 0 0 10px;">
+                    <mat-icon>delete</mat-icon> Excluir
+                  </button>
                 </td>
               </tr>
             </table>
+          </mat-card-content>
+
+          <mat-card-content *ngIf="user.categoria == 'Entregador'">
+
+            <mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedIndex">
+
+              <mat-tab disabled>
+                <table class="tabela">
+                  <tr>
+                    <th>Cod.</th>
+                    <th>Data coleta</th>
+                    <th>Data entrega</th>
+                    <th>Obs.</th>
+                    <th>Status</th>
+                    <th>Valor</th>
+                    <th>Ações</th>
+                  </tr>
+                  <tr *ngFor="let ent of entrega">
+                    <td>{{ ent.id }}</td>
+                    <td>{{ ent.dataColeta }}</td>
+                    <td>{{ ent.dataEntrega }}</td>
+                    <td>{{ ent.obs || 'Sem obs.' }}</td>
+                    <td>{{ ent.status }}</td>
+                    <td>{{ ent.valor | currency }}</td>
+                    <td class="acoes">
+                      <button mat-raised-button color="primary" style="width: 100px;">
+                        <mat-icon>edit</mat-icon> Editar
+                      </button>
+                      <button mat-raised-button color="warn" style="width: 100px; margin: 0 0 0 10px;">
+                        <mat-icon>delete</mat-icon> Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+              </mat-tab>
+
+              <mat-tab disabled>
+                <table class="tabela">
+                  <tr>
+                    <th>Cod.</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>CPF</th>
+                    <th>Categoria</th>
+                    <th>Data Nascimento</th>
+                    <th>Ações</th>
+                  </tr>
+                  <tr *ngFor="let u of todosUsuarios">
+                    <td>{{ u.id }}</td>
+                    <td>{{ u.nome }}</td>
+                    <td>{{ u.email }}</td>
+                    <td>{{ u.cpfOuCnpj }}</td>
+                    <td>{{ u.categoria }}</td>
+                    <td>{{ u.dataNascimento }}</td>
+                    <td class="acoes">
+                      <button mat-raised-button color="primary" style="width: 100px;">
+                        <mat-icon>edit</mat-icon> Editar
+                      </button>
+                      <button mat-raised-button color="warn" style="width: 100px; margin: 0 0 0 10px;">
+                        <mat-icon>delete</mat-icon> Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+              </mat-tab>
+
+              <mat-tab disabled>
+                <table class="tabela">
+                  <tr>
+                    <th>Cod.</th>
+                    <th>Descrição</th>
+                    <th>Porte</th>
+                    <th>Destinatario</th>
+                    <th>Endereço entrega</th>
+                    <th>CEP entrega</th>
+                    <th>Obs</th>
+                    <th>Valor</th>
+                    <th>Ações</th>
+                  </tr>
+                  <tr *ngFor="let pac of todosPacotes">
+                    <td>{{ pac.id }}</td>
+                    <td>{{ pac.descricao }}</td>
+                    <td>{{ pac.porte }}</td>
+                    <td>{{ pac.nomeDestinatario }}</td>
+                    <td>{{ pac.enderecoEntrega }}</td>
+                    <td>{{ pac.cepDestinatario }}</td>
+                    <td>{{ pac.obs || 'Sem obs.' }}</td>
+                    <td>{{ pac.valor | currency }}</td>
+                    <td class="acoes">
+                      <button mat-raised-button color="primary" style="width: 100px;">
+                        <mat-icon>edit</mat-icon> Editar
+                      </button>
+                      <button mat-raised-button color="warn" style="width: 100px; margin: 0 0 0 10px;">
+                        <mat-icon>delete</mat-icon> Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+              </mat-tab>
+
+              <mat-tab disabled>
+                <table class="tabela">
+                  <tr>
+                    <th>Cod.</th>
+                    <th>Modelo</th>
+                    <th>Marca</th>
+                    <th>Cor</th>
+                    <th>Ano</th>
+                    <th>Porte</th>
+                    <th>Ações</th>
+                  </tr>
+                  <tr *ngFor="let veiculo of veiculos">
+                    <td>{{ veiculo.id }}</td>
+                    <td>{{ veiculo.modelo }}</td>
+                    <td>{{ veiculo.marca }}</td>
+                    <td>{{ veiculo.cor }}</td>
+                    <td>{{ veiculo.ano }}</td>
+                    <td>{{ veiculo.porte }}</td>
+                    <td class="acoes">
+                      <button mat-raised-button color="primary" style="width: 100px;">
+                        <mat-icon>edit</mat-icon> Editar
+                      </button>
+                      <button mat-raised-button color="warn" style="width: 100px; margin: 0 0 0 10px;">
+                        <mat-icon>delete</mat-icon> Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+              </mat-tab>
+            </mat-tab-group>
+
           </mat-card-content>
         </mat-card>
 

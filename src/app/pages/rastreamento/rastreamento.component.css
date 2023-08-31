@@ -214,10 +214,6 @@
   background-color: #00ff00;
 }
 
-::ng-deep .mat-step-header .mat-step-icon-state-done{
-  background-color: #009900;
-}
-
 .container .content .resultado mat-accordion{
   margin: 10px 0;
   width: 95%;

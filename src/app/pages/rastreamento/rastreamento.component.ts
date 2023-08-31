@@ -1,10 +1,10 @@
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
 import { Router } from '@angular/router';
 import { Entrega } from 'src/app/models/entrega';
 import { EntregaService } from 'src/app/services/entrega.service';
-import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-rastreamento',
@@ -19,14 +19,15 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class RastreamentoComponent implements OnInit {
 
-  pesquisa = new FormControl('');
-  results: number = 1;
-  interests: any[];
+  @ViewChild('stepper') private myStepper: MatStepper;
+  totalStepsCount: number;
+
+  pesquisa: string;
+  codigo: string;
   imgMapa = 'https://developers.google.com/static/maps/images/landing/dds.png?hl=pt-br';
-
-  entrega: Entrega[] | any;
-
+  entregaRastreamento: Entrega | any;
   style = 'display: none';
+  novaEntrega: Entrega;
 
   formGroup = new FormGroup({ secondCtrl: new FormControl('') })
 
@@ -35,11 +36,7 @@ export class RastreamentoComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.interests = [
-      { value: 'reading', viewValue: 'Reading' },
-      { value: 'swimming', viewValue: 'Swimming' },
-      { value: 'cycling', viewValue: 'Cycling' }
-    ];
+
   }
 
   getHomePage() {
@@ -70,23 +67,59 @@ export class RastreamentoComponent implements OnInit {
     this.router.navigate(['/signup']);
   }
 
-
-  //Pesquisa
-  pesquisar() {
-    this.style = 'display: flex'
-    alert(this.pesquisa.value);
-    this.limparPesquisa();
-  }
-
   limparPesquisa() {
-    this.pesquisa = new FormControl('');
+    this.pesquisa = '';
   }
 
-  //Get Usuário por id
-  getPostById(id: number) {
-    this.entregaService.getEntregaById(id).subscribe(response => this.entrega = response, error => {
-      alert('Oops... Ocorreu um erro: ' + error.message);
+  //Rastreamento
+  getEntregasByCodigoRastreamento() {
+    this.entregaService.getEntregasByCodigoRastreamento(this.pesquisa).subscribe(response => {
+      this.entregaRastreamento = response;
+
+      this.novaEntrega = this.entregaRastreamento[0];
+
+
+      if (this.entregaRastreamento.length >= 1) {
+
+        if (this.novaEntrega.status == 'SOLICITADO') {
+          this.statusSolicitado(this.myStepper);
+
+        } else if (this.novaEntrega.status == 'RECOLHIDO'){
+          this.statusRecolhido(this.myStepper);
+
+        } else if (this.novaEntrega.status == 'ACAMINHO'){
+          this.statusACaminho(this.myStepper);
+
+        } else if (this.novaEntrega.status == 'ENTREGUE'){
+          this.statusEntregue(this.myStepper);
+
+        }
+
+        this.style = 'display: block';
+
+      } else {
+        this.style = 'display: none';
+      }
     });
+
+    this.limparPesquisa();
+
+  }
+
+  statusSolicitado(stepper: MatStepper) {
+    stepper.selectedIndex = 0;
+  }
+
+  statusRecolhido(stepper: MatStepper) {
+    stepper.selectedIndex = 1;
+  }
+
+  statusACaminho(stepper: MatStepper) {
+    stepper.selectedIndex = 2;
+  }
+
+  statusEntregue(stepper: MatStepper) {
+    stepper.selectedIndex = 3;
   }
 
 }

@@ -30,6 +30,7 @@ export class PerfilComponent {
   pacote: Pacote[] | any;
   todosPacotes: Pacote[] | any;
   entrega: Entrega[] | any;
+  todasEntregas: Entrega[] | any;
   label: string = 'Entregas';
 
   opened = false;
@@ -68,6 +69,7 @@ export class PerfilComponent {
     this.getEnderecoUser();
     this.getPacoteByUser();
     this.getEntregasByUser();
+    this.getTodasEntregas();
     this.getTodosPacotes();
     this.getUsuarios();
     this.getVeiculos();
@@ -113,9 +115,15 @@ export class PerfilComponent {
     this.usuarioService.getUsuarioByEmail(localUser.email).subscribe(response => {
       this.user = response as Usuario;
       this.entregaService.getEntregaByUsuario(this.user.id).subscribe(response => {
-        this.entrega = response as Pacote;
+        this.entrega = response;
         console.log(this.entrega);
       });
+    });
+  }
+
+  getTodasEntregas(){
+    this.entregaService.getEntregas().subscribe(response =>{
+      this.todasEntregas = response;
     });
   }
 

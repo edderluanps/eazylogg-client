@@ -49,18 +49,6 @@
             <p class="paragraph"><i class="fa-solid fa-info-circle"></i>Dados pessoais</p>
           </mat-card>
 
-          <mat-card class="menu-item" *ngIf="user.categoria == 'Entregador'">
-            <p class="paragraph"><i class="fa-solid fa-truck"></i>Entregas</p>
-          </mat-card>
-
-          <mat-card class="menu-item" *ngIf="user.categoria == 'Contratante'">
-            <p class="paragraph"><i class="fa-solid fa-truck"></i>Anuncios</p>
-          </mat-card>
-
-          <mat-card class="menu-item">
-            <p class="paragraph"><i class="fa-solid fa-gear"></i>Configuração</p>
-          </mat-card>
-
           <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'" (click)="primeiroSlide()">
             <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de entregas</p>
           </mat-card>
@@ -75,6 +63,10 @@
 
           <mat-card class="menu-item" *ngIf="user.perfis == 'ADMIN'" (click)="quartoSlide()">
             <p class="paragraph"><i class="fa-solid fa-list"></i>Lista de veículos</p>
+          </mat-card>
+
+          <mat-card class="menu-item">
+            <p class="paragraph"><i class="fa-solid fa-gear"></i>Configuração</p>
           </mat-card>
 
           <mat-card class="menu-item" (click)="logout()" >
@@ -125,7 +117,7 @@
 
           <mat-card-header>
             <h2 class="title-3" *ngIf="user.categoria == 'Contratante'">Anuncios</h2>
-            <h2 class="title-3">{{ label }}</h2>
+            <h2 class="title-3" *ngIf="user.categoria == 'Entregador'">{{ label }}</h2>
           </mat-card-header>
 
           <mat-card-content *ngIf="user.categoria == 'Contratante'">
@@ -162,12 +154,13 @@
             </table>
           </mat-card-content>
 
+
           <mat-card-content *ngIf="user.categoria == 'Entregador'">
 
             <mat-tab-group mat-align-tabs="center" [selectedIndex]="selectedIndex">
 
               <mat-tab disabled>
-                <table class="tabela">
+                <table class="tabela" class="tabela" *ngIf="user.perfis == 'CLIENTE'">
                   <tr>
                     <th>Cod.</th>
                     <th>Data coleta</th>
@@ -194,6 +187,35 @@
                     </td>
                   </tr>
                 </table>
+
+                <table class="tabela" *ngIf="user.perfis == 'ADMIN'">
+                  <tr>
+                    <th>Cod. meu</th>
+                    <th>Data coleta</th>
+                    <th>Data entrega</th>
+                    <th>Obs.</th>
+                    <th>Status</th>
+                    <th>Valor</th>
+                    <th>Ações</th>
+                  </tr>
+                  <tr *ngFor="let ent of todasEntregas">
+                    <td>{{ ent.id }}</td>
+                    <td>{{ ent.dataColeta }}</td>
+                    <td>{{ ent.dataEntrega }}</td>
+                    <td>{{ ent.obs || 'Sem obs.' }}</td>
+                    <td>{{ ent.status }}</td>
+                    <td>{{ ent.valor | currency }}</td>
+                    <td class="acoes">
+                      <button mat-raised-button color="primary" style="width: 100px;">
+                        <mat-icon>edit</mat-icon> Editar
+                      </button>
+                      <button mat-raised-button color="warn" style="width: 100px; margin: 0 0 0 10px;">
+                        <mat-icon>delete</mat-icon> Excluir
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+
               </mat-tab>
 
               <mat-tab disabled>
@@ -269,6 +291,7 @@
                     <th>Cor</th>
                     <th>Ano</th>
                     <th>Porte</th>
+                    <th>Proprietario</th>
                     <th>Ações</th>
                   </tr>
                   <tr *ngFor="let veiculo of veiculos">
@@ -278,6 +301,7 @@
                     <td>{{ veiculo.cor }}</td>
                     <td>{{ veiculo.ano }}</td>
                     <td>{{ veiculo.porte }}</td>
+                    <td>{{ veiculo.usuario.nome }}</td>
                     <td class="acoes">
                       <button mat-raised-button color="primary" style="width: 100px;">
                         <mat-icon>edit</mat-icon> Editar

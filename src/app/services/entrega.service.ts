@@ -22,4 +22,9 @@ export class EntregaService {
   getEntregaByUsuario(entId: number){
     return this.httpClient.get(`${API_TEST_URL}eazylogg/entrega/entregas-realizadas?entId=${entId}`);
   }
+
+  getEntregasByCodigoRastreamento(codigo: string) {
+    return this.httpClient.get(`${API_TEST_URL}eazylogg/entrega/pesquisa-rastreamento?codigo=${codigo}`);
+  }
+
 }

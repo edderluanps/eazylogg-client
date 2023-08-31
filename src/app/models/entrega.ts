@@ -11,10 +11,11 @@ export class Entrega{
   dataEntrega: string;
   enderecoColetaId: Endereco;
   pagamento: String[];
-  status: number;
+  status: any;
   valor: number;
   desconto: number;
   obs: string;
+  codRastreamento: string;
   ativo: boolean;
 
 }
